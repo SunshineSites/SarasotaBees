@@ -3,521 +3,557 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hawthorne's Pool Service Inc | Sarasota, FL</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<title>Somers Drapery | Sarasota, FL</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --pool: #0096c7;
-    --pool-dark: #023e8a;
-    --pool-deep: #03045e;
-    --pool-light: #48cae4;
-    --pool-pale: #90e0ef;
-    --palm: #2d6a4f;
-    --sun: #f4a423;
-    --sun-light: #fcd34d;
-    --sand: #fdf6ec;
-    --cream: #fdfaf4;
-    --text: #0d1b2a;
-    --muted: #4a6070;
-    --border: rgba(255,255,255,0.2);
+    --ivory: #f8f4ee;
+    --linen: #ede8df;
+    --silk: #d4c9b8;
+    --taupe: #8c7d6a;
+    --drape: #4a3f35;
+    --dark: #1e1a16;
+    --gold: #b8965a;
+    --gold-light: #d4b07a;
+    --cream: #faf7f2;
+    --text: #2a2218;
+    --muted: #7a6e62;
+    --border: rgba(180,160,130,0.2);
   }
   html { scroll-behavior: smooth; }
-  body { font-family: 'Nunito', sans-serif; color: var(--text); background: #fff; line-height: 1.6; }
-  ::-webkit-scrollbar { width: 5px; }
-  ::-webkit-scrollbar-thumb { background: var(--pool-light); border-radius: 3px; }
+  body { font-family: 'Jost', sans-serif; color: var(--text); background: var(--cream); line-height: 1.6; overflow-x: hidden; }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+  /* === DRAPERY CURTAIN EFFECT === */
+  /* Left curtain panel */
+  .curtain-left {
+    position: fixed; top: 0; left: 0; width: 48px; height: 100vh; z-index: 50;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(74,63,53,0.18) 0%, rgba(74,63,53,0.06) 60%, transparent 100%);
+  }
+  .curtain-left::before {
+    content: '';
+    position: absolute; top: 0; left: 0; width: 6px; height: 100%;
+    background: linear-gradient(180deg, var(--gold) 0%, var(--gold-light) 20%, var(--gold) 40%, var(--gold-light) 60%, var(--gold) 80%, var(--gold-light) 100%);
+    opacity: 0.5;
+  }
+  /* Right curtain panel */
+  .curtain-right {
+    position: fixed; top: 0; right: 0; width: 48px; height: 100vh; z-index: 50;
+    pointer-events: none;
+    background: linear-gradient(270deg, rgba(74,63,53,0.18) 0%, rgba(74,63,53,0.06) 60%, transparent 100%);
+  }
+  .curtain-right::before {
+    content: '';
+    position: absolute; top: 0; right: 0; width: 6px; height: 100%;
+    background: linear-gradient(180deg, var(--gold) 0%, var(--gold-light) 20%, var(--gold) 40%, var(--gold-light) 60%, var(--gold) 80%, var(--gold-light) 100%);
+    opacity: 0.5;
+  }
+  /* Curtain rod */
+  .curtain-rod {
+    position: fixed; top: 0; left: 0; right: 0; height: 8px; z-index: 51;
+    background: linear-gradient(180deg, #8a7050 0%, var(--gold) 40%, #8a7050 100%);
+    pointer-events: none;
+  }
+  .curtain-rod::before {
+    content: '';
+    position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+  }
+  /* Ring hooks on rod */
+  .ring { position: fixed; top: 0; width: 14px; height: 14px; z-index: 52; pointer-events: none; }
+  .ring svg { width: 14px; height: 14px; }
 
   /* NAV */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(3,4,94,0.95); backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(144,224,239,0.15);
+    position: fixed; top: 8px; left: 56px; right: 56px; z-index: 100;
+    background: rgba(248,244,238,0.97); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5%; height: 70px;
+    padding: 0 5%; height: 68px;
+    box-shadow: 0 2px 32px rgba(74,63,53,0.08);
   }
-  .nav-logo-main { font-size: 19px; font-weight: 900; color: #fff; letter-spacing: -0.3px; line-height: 1.2; }
-  .nav-logo-sub { font-size: 10px; color: var(--pool-pale); letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; opacity: 0.7; }
-  .nav-links { display: flex; gap: 28px; }
-  .nav-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 13px; font-weight: 600; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--pool-pale); }
-  .nav-cta { background: var(--sun); color: var(--pool-deep); font-size: 13px; font-weight: 800; padding: 10px 22px; border-radius: 50px; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 16px rgba(244,164,35,0.4); }
-  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 22px rgba(244,164,35,0.5); }
+  .nav-logo { display: flex; flex-direction: column; line-height: 1.2; }
+  .nav-logo-main { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--dark); letter-spacing: 1px; }
+  .nav-logo-main em { font-style: italic; color: var(--gold); }
+  .nav-logo-sub { font-size: 10px; color: var(--muted); letter-spacing: 3px; text-transform: uppercase; font-weight: 300; }
+  .nav-center { display: flex; gap: 36px; }
+  .nav-center a { color: var(--muted); text-decoration: none; font-size: 11px; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }
+  .nav-center a:hover { color: var(--gold); }
+  .nav-cta { background: var(--drape); color: var(--ivory); font-size: 10px; font-weight: 400; padding: 10px 24px; letter-spacing: 2px; text-decoration: none; text-transform: uppercase; transition: all 0.3s; border: 1px solid var(--drape); }
+  .nav-cta:hover { background: transparent; color: var(--drape); }
 
-  /* HERO — full pool image background */
+  /* HERO — fabric drape aesthetic */
   .hero {
     min-height: 100vh; position: relative; overflow: hidden;
     display: flex; align-items: center;
-    background: url('https://images.unsplash.com/photo-1562778612-e1e0cda9915c?w=1800&q=80') center/cover no-repeat;
+    background: var(--dark);
+    padding: 88px 6% 60px;
   }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(3,4,94,0.88) 0%, rgba(0,150,199,0.55) 60%, rgba(3,4,94,0.3) 100%); }
-  .hero-palm-r { position: absolute; bottom: 0; right: 0; font-size: 280px; line-height: 1; opacity: 0.12; z-index: 1; }
-  .hero-palm-l { position: absolute; bottom: 0; left: -20px; font-size: 200px; line-height: 1; opacity: 0.1; z-index: 1; }
-  .hero-wave { position: absolute; bottom: -2px; left: 0; right: 0; z-index: 2; }
-  .hero-wave svg { display: block; width: 100%; }
-  .hero-inner { position: relative; z-index: 3; display: grid; grid-template-columns: 1fr 300px; gap: 60px; align-items: center; padding: 90px 5% 80px; width: 100%; }
-  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: #fff; font-size: 11px; font-weight: 700; padding: 5px 14px; border-radius: 50px; margin-bottom: 22px; letter-spacing: 1px; text-transform: uppercase; backdrop-filter: blur(4px); }
-  .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: #90ff90; animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-  h1 { font-size: clamp(44px, 7vw, 82px); font-weight: 900; color: #fff; line-height: 1.0; letter-spacing: -1px; margin-bottom: 22px; text-shadow: 0 2px 20px rgba(0,0,0,0.3); }
-  h1 .script { font-family: 'Lora', serif; font-style: italic; color: var(--pool-pale); display: block; font-size: 0.65em; font-weight: 600; letter-spacing: 0; margin-bottom: 4px; }
-  .hero-sub { font-size: 15px; color: rgba(255,255,255,0.8); font-weight: 400; max-width: 480px; line-height: 1.85; margin-bottom: 36px; text-shadow: 0 1px 8px rgba(0,0,0,0.2); }
-  .hero-pills { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
-  .hero-pill { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: #fff; font-size: 11px; font-weight: 700; padding: 5px 14px; border-radius: 50px; backdrop-filter: blur(4px); }
-  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-  .btn-sun { background: var(--sun); color: var(--pool-deep); font-size: 13px; font-weight: 800; padding: 14px 32px; border-radius: 50px; text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 6px 20px rgba(244,164,35,0.45); }
-  .btn-sun:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(244,164,35,0.55); }
-  .btn-ghost { background: rgba(255,255,255,0.15); color: #fff; font-size: 13px; font-weight: 700; padding: 14px 28px; border-radius: 50px; text-decoration: none; border: 2px solid rgba(255,255,255,0.4); transition: all 0.2s; backdrop-filter: blur(4px); }
-  .btn-ghost:hover { background: rgba(255,255,255,0.25); border-color: #fff; }
+  /* Fabric texture bg */
+  .hero-fabric {
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(
+        180deg,
+        rgba(255,255,255,0.015) 0px,
+        rgba(255,255,255,0.015) 1px,
+        transparent 1px,
+        transparent 8px
+      ),
+      linear-gradient(145deg, #1e1a16 0%, #2a2218 40%, #1a1610 100%);
+  }
+  /* Draped fabric shapes on sides */
+  .hero-drape-l {
+    position: absolute; top: 0; left: 0; width: 200px; height: 100%;
+    background: linear-gradient(90deg, rgba(74,63,53,0.6) 0%, rgba(74,63,53,0.25) 50%, transparent 100%);
+    clip-path: polygon(0 0, 100% 0, 80% 20%, 95% 40%, 75% 60%, 90% 80%, 70% 100%, 0 100%);
+  }
+  .hero-drape-r {
+    position: absolute; top: 0; right: 0; width: 200px; height: 100%;
+    background: linear-gradient(270deg, rgba(74,63,53,0.6) 0%, rgba(74,63,53,0.25) 50%, transparent 100%);
+    clip-path: polygon(100% 0, 0 0, 20% 20%, 5% 40%, 25% 60%, 10% 80%, 30% 100%, 100% 100%);
+  }
+  /* Gold tie-backs */
+  .hero-tieback-l {
+    position: absolute; left: 140px; top: 55%;
+    width: 50px; height: 20px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    opacity: 0.7;
+  }
+  .hero-tieback-r {
+    position: absolute; right: 140px; top: 55%;
+    width: 50px; height: 20px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    opacity: 0.7;
+  }
+  /* Gold fringe at bottom of drapes */
+  .hero-fringe {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 6px;
+    background: repeating-linear-gradient(90deg, var(--gold) 0px, var(--gold) 3px, transparent 3px, transparent 8px);
+    opacity: 0.3;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 700px; }
+  .hero-overline { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+  .overline-bar { width: 40px; height: 1px; background: var(--gold); }
+  .overline-text { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-weight: 300; }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 7vw, 92px);
+    font-weight: 400; color: var(--ivory); line-height: 1.05;
+    letter-spacing: -0.5px; margin-bottom: 28px;
+  }
+  h1 em { font-style: italic; color: var(--gold-light); }
+  .hero-sub { font-size: 14px; color: rgba(248,244,238,0.5); font-weight: 300; max-width: 480px; line-height: 2; margin-bottom: 48px; letter-spacing: 0.5px; }
+  .hero-divider { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin-bottom: 36px; }
+  .hero-actions { display: flex; align-items: center; gap: 32px; margin-bottom: 72px; }
+  .btn-gold { background: var(--gold); color: var(--dark); font-size: 10px; font-weight: 400; padding: 16px 40px; letter-spacing: 3px; text-decoration: none; text-transform: uppercase; transition: all 0.4s; border: 1px solid var(--gold); display: inline-block; }
+  .btn-gold:hover { background: transparent; color: var(--gold); }
+  .hero-link { color: rgba(248,244,238,0.4); font-size: 11px; text-decoration: none; letter-spacing: 2px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; transition: color 0.2s; }
+  .hero-link:hover { color: var(--ivory); }
+  .hero-stats { display: flex; gap: 0; border-top: 1px solid rgba(184,150,90,0.2); padding-top: 40px; }
+  .hstat { padding-right: 48px; border-right: 1px solid rgba(184,150,90,0.15); margin-right: 48px; }
+  .hstat:last-child { border: none; margin: 0; padding: 0; }
+  .hstat-num { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 400; color: var(--ivory); line-height: 1; }
+  .hstat-num span { color: var(--gold); font-size: 18px; }
+  .hstat-label { font-size: 10px; color: rgba(248,244,238,0.3); letter-spacing: 2px; text-transform: uppercase; margin-top: 6px; font-weight: 300; }
 
-  /* HERO CARD */
-  .hero-card { background: rgba(3,4,94,0.7); backdrop-filter: blur(16px); border: 1px solid rgba(144,224,239,0.25); border-radius: 20px; padding: 32px 28px; display: flex; flex-direction: column; gap: 18px; }
-  .hero-card-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--pool-pale); font-weight: 700; margin-bottom: 4px; }
-  .hstat { padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-  .hstat:last-child { border: none; padding: 0; }
-  .hstat-num { font-size: 34px; font-weight: 900; color: #fff; line-height: 1; letter-spacing: -1px; }
-  .hstat-num sup { font-size: 16px; color: var(--pool-pale); }
-  .hstat-label { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
-
-  /* TRUST */
-  .trust { background: var(--palm); padding: 14px 5%; display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
-  .trust-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); font-size: 12px; font-weight: 700; }
+  /* GOLD DIVIDER */
+  .divider { display: flex; align-items: center; gap: 20px; padding: 0 6%; margin: 0; }
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--silk), transparent); }
+  .divider-ornament { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--gold); opacity: 0.5; }
 
   /* SECTIONS */
-  section { padding: 90px 5%; }
-  .stag { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,150,199,0.1); border: 1px solid rgba(0,150,199,0.25); color: var(--pool); font-size: 11px; font-weight: 700; padding: 5px 14px; border-radius: 50px; margin-bottom: 16px; letter-spacing: 1px; text-transform: uppercase; }
-  .stitle { font-size: clamp(28px, 4vw, 46px); font-weight: 900; color: var(--text); letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 14px; }
-  .stitle em { font-family: 'Lora', serif; font-style: italic; color: var(--pool); }
-  .ssub { color: var(--muted); font-size: 15px; max-width: 520px; line-height: 1.8; margin-bottom: 52px; }
+  section { padding: 96px 6%; }
+  .s-overline { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+  .s-bar { width: 24px; height: 1px; background: var(--gold); }
+  .s-tag { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 300; }
+  .s-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 50px); font-weight: 400; color: var(--dark); letter-spacing: -0.3px; line-height: 1.15; margin-bottom: 16px; }
+  .s-title em { font-style: italic; color: var(--taupe); }
+  .s-sub { color: var(--muted); font-size: 14px; max-width: 500px; line-height: 2; margin-bottom: 56px; font-weight: 300; letter-spacing: 0.3px; }
 
-  /* WHY CAT */
-  .cat-bg {
-    position: relative; overflow: hidden;
-    background: url('https://images.unsplash.com/photo-1551524358-f350c731d4b8?w=1800&q=80') center/cover no-repeat;
+  /* SERVICES — fabric swatch grid */
+  .services-bg { background: var(--linen); }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--silk); }
+  .svc {
+    background: var(--ivory); padding: 44px 36px;
+    transition: all 0.4s; position: relative; overflow: hidden;
   }
-  .cat-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(3,4,94,0.92) 0%, rgba(0,96,199,0.75) 50%, rgba(3,4,94,0.88) 100%); }
-  .cat-palm-r { position: absolute; bottom: 0; right: 0; font-size: 260px; line-height: 1; opacity: 0.08; z-index: 1; }
-  .cat-inner { position: relative; z-index: 2; }
-  .cat-bg .stag { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: var(--pool-pale); }
-  .cat-bg .stitle { color: #fff; }
-  .cat-bg .stitle em { color: var(--pool-pale); }
-  .cat-bg .ssub { color: rgba(255,255,255,0.6); }
-  .cat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-  .reasons { display: flex; flex-direction: column; gap: 16px; }
-  .reason { display: flex; gap: 16px; align-items: flex-start; padding: 18px 20px; background: rgba(255,255,255,0.07); border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s; }
-  .reason:hover { background: rgba(255,255,255,0.12); }
-  .reason-icon { font-size: 24px; min-width: 30px; }
-  .reason-title { font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 4px; }
-  .reason-text { font-size: 13px; color: rgba(255,255,255,0.58); line-height: 1.65; }
-  .cat-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(144,224,239,0.2); border-radius: 20px; padding: 40px 36px; backdrop-filter: blur(12px); }
-  .cat-card-title { font-size: 12px; font-weight: 700; color: var(--pool-pale); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
-  .cstat { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
-  .cstat:last-child { border: none; }
-  .cstat-num { font-family: 'Lora', serif; font-size: 28px; font-weight: 600; color: #fff; min-width: 80px; line-height: 1; }
-  .cstat-label { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.5; }
-  .honest-badge { margin-top: 20px; padding: 18px; background: rgba(244,164,35,0.1); border: 1px solid rgba(244,164,35,0.3); border-radius: 12px; }
-  .honest-title { font-size: 12px; font-weight: 700; color: var(--sun); margin-bottom: 8px; }
-  .honest-text { font-size: 13px; color: rgba(255,255,255,0.52); line-height: 1.65; }
+  /* Subtle fabric fold line */
+  .svc::before {
+    content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
+    background: linear-gradient(180deg, transparent, var(--gold), transparent);
+    opacity: 0; transition: opacity 0.4s;
+  }
+  .svc:hover { background: var(--cream); }
+  .svc:hover::before { opacity: 0.6; }
+  .svc-num { font-family: 'Playfair Display', serif; font-size: 11px; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; font-weight: 400; }
+  .svc-icon { font-size: 28px; margin-bottom: 16px; opacity: 0.85; }
+  .svc-name { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 400; color: var(--dark); margin-bottom: 12px; line-height: 1.2; }
+  .svc-desc { font-size: 13px; color: var(--muted); line-height: 1.85; font-weight: 300; letter-spacing: 0.2px; }
 
-  /* SERVICES — pool image background */
-  .services-bg {
-    position: relative; overflow: hidden;
-    background: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1800&q=80') center/cover no-repeat;
+  /* ABOUT — rich dark panel */
+  .about-bg { background: var(--dark); position: relative; overflow: hidden; }
+  /* Fabric weave texture */
+  .about-bg::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 6px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.008) 0px, rgba(255,255,255,0.008) 1px, transparent 1px, transparent 6px);
   }
-  .services-overlay { position: absolute; inset: 0; background: rgba(253,250,244,0.96); }
-  .services-inner { position: relative; z-index: 1; }
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
-  .svc { background: #fff; border: 2px solid rgba(0,150,199,0.15); border-radius: 16px; padding: 28px; transition: all 0.25s; position: relative; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
-  .svc::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--pool-dark), var(--pool-light)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
-  .svc:hover { border-color: var(--pool-light); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,150,199,0.12); }
-  .svc:hover::before { transform: scaleX(1); }
-  .svc-icon { font-size: 32px; margin-bottom: 14px; }
-  .svc-name { font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 8px; }
-  .svc-tag { font-size: 12px; color: var(--pool); font-weight: 700; margin-bottom: 10px; }
-  .svc-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 1; }
+  .about-bg .s-title { color: var(--ivory); }
+  .about-bg .s-title em { color: var(--gold-light); }
+  .about-bg .s-sub { color: rgba(248,244,238,0.45); }
+  .about-card { border: 1px solid rgba(184,150,90,0.2); padding: 48px 44px; position: relative; }
+  /* Corner ornaments */
+  .about-card::before { content: '✦'; position: absolute; top: 14px; left: 18px; font-size: 12px; color: var(--gold); opacity: 0.4; }
+  .about-card::after { content: '✦'; position: absolute; bottom: 14px; right: 18px; font-size: 12px; color: var(--gold); opacity: 0.4; }
+  .about-card-title { font-family: 'Playfair Display', serif; font-size: 11px; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 28px; font-weight: 400; opacity: 0.8; }
+  .astat { display: flex; align-items: flex-start; gap: 20px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .astat:last-child { border: none; }
+  .astat-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 400; color: var(--ivory); min-width: 80px; line-height: 1; }
+  .astat-num span { color: var(--gold); font-size: 16px; }
+  .astat-label { font-size: 12px; color: rgba(248,244,238,0.4); line-height: 1.6; font-weight: 300; letter-spacing: 0.3px; }
+  .values { display: flex; flex-direction: column; }
+  .val { display: flex; gap: 20px; padding: 22px 0; border-bottom: 1px solid rgba(184,150,90,0.1); align-items: flex-start; }
+  .val:first-child { padding-top: 0; }
+  .val:last-child { border: none; }
+  .val-num { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 400; color: var(--gold); opacity: 0.35; line-height: 1; min-width: 28px; }
+  .val-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 400; color: var(--ivory); margin-bottom: 6px; }
+  .val-text { font-size: 13px; color: rgba(248,244,238,0.38); line-height: 1.8; font-weight: 300; }
 
-  /* REVIEWS — pool/palm background */
-  .reviews-bg {
-    position: relative; overflow: hidden;
-    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1800&q=80') center/cover no-repeat;
-  }
-  .reviews-overlay { position: absolute; inset: 0; background: linear-gradient(145deg, rgba(3,4,94,0.93) 0%, rgba(0,96,180,0.82) 100%); }
-  .reviews-palm-r { position: absolute; bottom: 0; right: 0; font-size: 280px; line-height: 1; opacity: 0.09; z-index: 1; }
-  .reviews-inner { position: relative; z-index: 2; }
-  .reviews-bg .stag { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: var(--pool-pale); }
-  .reviews-bg .stitle { color: #fff; }
-  .reviews-bg .stitle em { color: var(--pool-pale); }
-  .reviews-bg .ssub { color: rgba(255,255,255,0.55); }
-  .reviews-top { display: flex; align-items: center; gap: 24px; margin-bottom: 40px; flex-wrap: wrap; }
-  .score-big { font-family: 'Lora', serif; font-size: 72px; font-weight: 600; color: #fff; line-height: 1; }
-  .score-stars { color: var(--sun); font-size: 22px; letter-spacing: 2px; }
-  .score-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; font-weight: 600; }
-  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
-  .review-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 28px; backdrop-filter: blur(12px); }
-  .review-stars { color: var(--sun); font-size: 14px; margin-bottom: 12px; letter-spacing: 1px; }
-  .review-text { font-size: 14px; color: rgba(255,255,255,0.9); line-height: 1.7; margin-bottom: 16px; font-style: italic; font-family: 'Lora', serif; }
-  .review-name { font-size: 13px; font-weight: 800; color: var(--pool-pale); }
-  .review-meta { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+  /* REVIEWS */
+  .reviews-bg { background: var(--ivory); }
+  .reviews-header { display: flex; align-items: flex-end; gap: 32px; margin-bottom: 52px; }
+  .score-num { font-family: 'Playfair Display', serif; font-size: 80px; font-weight: 400; color: var(--dark); line-height: 1; letter-spacing: -2px; }
+  .score-stars { color: var(--gold); font-size: 20px; letter-spacing: 4px; }
+  .score-label { font-size: 11px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 6px; font-weight: 300; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--silk); }
+  .review-card { background: var(--ivory); padding: 40px 44px; position: relative; }
+  .review-card::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 80px; color: var(--gold); opacity: 0.12; position: absolute; top: 8px; left: 28px; line-height: 1; }
+  .review-stars { color: var(--gold); font-size: 13px; margin-bottom: 16px; letter-spacing: 2px; }
+  .review-text { font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; color: var(--dark); line-height: 1.8; margin-bottom: 24px; padding-left: 8px; font-weight: 400; }
+  .review-author { font-size: 12px; font-weight: 400; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+  .review-meta { font-size: 11px; color: var(--muted); margin-top: 4px; font-weight: 300; letter-spacing: 0.5px; }
 
-  /* BOOKING — pool aerial background */
-  .booking-bg {
-    position: relative; overflow: hidden;
-    background: url('https://images.unsplash.com/photo-1510449653031-2e53b5a94832?w=1800&q=80') center/cover no-repeat;
+  /* CONTACT */
+  .contact-bg { background: var(--linen); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .form-wrap { background: var(--dark); padding: 52px 48px; position: relative; overflow: hidden; }
+  /* Fabric corner fold effect */
+  .form-wrap::after {
+    content: ''; position: absolute; top: 0; right: 0;
+    width: 48px; height: 48px;
+    background: linear-gradient(225deg, var(--gold) 0%, var(--gold) 50%, transparent 50%);
+    opacity: 0.3;
   }
-  .booking-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(253,250,244,0.97) 0%, rgba(253,250,244,0.94) 100%); }
-  .booking-inner { position: relative; z-index: 1; }
-  .booking-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: start; }
-  .form-card { background: linear-gradient(145deg, var(--pool-deep), var(--pool-dark)); border-radius: 20px; padding: 44px 40px; box-shadow: 0 24px 64px rgba(3,4,94,0.25); }
-  .form-title { font-size: 22px; font-weight: 900; color: #fff; margin-bottom: 6px; }
-  .form-sub { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 28px; }
-  .form-group { margin-bottom: 16px; }
-  .form-group label { display: block; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.45); margin-bottom: 6px; letter-spacing: 1.5px; text-transform: uppercase; }
-  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 14px; border: 1.5px solid rgba(255,255,255,0.12); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 13px; color: #fff; background: rgba(255,255,255,0.07); outline: none; transition: border-color 0.2s; }
-  .form-group select option { background: var(--pool-deep); }
-  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.28); }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--pool-light); background: rgba(255,255,255,0.1); }
-  .form-group textarea { resize: vertical; min-height: 90px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .form-submit { width: 100%; background: var(--sun); color: var(--pool-deep); border: none; padding: 15px; border-radius: 50px; font-size: 13px; font-weight: 800; font-family: 'Nunito', sans-serif; cursor: pointer; transition: all 0.2s; margin-top: 8px; box-shadow: 0 6px 20px rgba(244,164,35,0.4); }
-  .form-submit:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(244,164,35,0.5); }
+  .form-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 400; color: var(--ivory); margin-bottom: 6px; letter-spacing: 0.5px; }
+  .form-sub { font-size: 12px; color: rgba(248,244,238,0.35); margin-bottom: 32px; font-weight: 300; letter-spacing: 1px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: 9px; font-weight: 400; color: rgba(248,244,238,0.3); margin-bottom: 8px; letter-spacing: 2.5px; text-transform: uppercase; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 13px 16px; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); background: transparent; font-family: 'Jost', sans-serif; font-size: 14px; color: var(--ivory); outline: none; transition: border-color 0.3s; }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(248,244,238,0.2); }
+  .form-group select option { background: var(--dark); }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-bottom-color: var(--gold); }
+  .form-group textarea { resize: vertical; min-height: 96px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .form-submit { width: 100%; background: var(--gold); color: var(--dark); border: none; padding: 16px; font-size: 10px; font-weight: 400; font-family: 'Jost', sans-serif; cursor: pointer; letter-spacing: 3px; text-transform: uppercase; transition: all 0.4s; margin-top: 12px; border: 1px solid var(--gold); }
+  .form-submit:hover { background: transparent; color: var(--gold); }
   .contact-info { padding-top: 8px; }
-  .contact-title { font-size: 38px; font-weight: 900; color: var(--text); line-height: 1.1; margin-bottom: 14px; }
-  .contact-title em { font-family: 'Lora', serif; font-style: italic; color: var(--pool); }
-  .contact-sub { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 36px; }
+  .contact-title { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 400; color: var(--dark); line-height: 1.15; margin-bottom: 12px; letter-spacing: -0.3px; }
+  .contact-title em { font-style: italic; color: var(--taupe); }
+  .contact-sub { font-size: 14px; color: var(--muted); line-height: 2; margin-bottom: 44px; font-weight: 300; letter-spacing: 0.3px; }
   .clist { display: flex; flex-direction: column; }
-  .citem { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid rgba(0,0,0,0.07); align-items: flex-start; }
+  .citem { display: flex; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
   .citem:first-child { padding-top: 0; }
   .citem:last-child { border: none; }
-  .cicon { font-size: 20px; min-width: 26px; margin-top: 2px; }
-  .clabel { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
-  .cval { font-size: 15px; font-weight: 700; color: var(--text); }
-  .cnote { font-size: 13px; color: var(--muted); margin-top: 2px; }
-  .open-pill { display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; background: #f0fdf4; border: 1px solid #bbf7d0; color: #15803d; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 50px; }
-  .open-pill::before { content: '●'; font-size: 7px; animation: pulse 2s infinite; }
+  .cicon { font-size: 16px; min-width: 22px; margin-top: 2px; opacity: 0.7; }
+  .clabel { font-size: 9px; font-weight: 400; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+  .cval { font-size: 15px; font-weight: 400; color: var(--dark); }
+  .cnote { font-size: 12px; color: var(--muted); margin-top: 3px; font-weight: 300; letter-spacing: 0.3px; }
+  .open-tag { display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; background: transparent; border: 1px solid rgba(184,150,90,0.4); color: var(--gold); font-size: 10px; font-weight: 400; padding: 4px 12px; letter-spacing: 1.5px; text-transform: uppercase; }
+  .open-tag::before { content: '●'; font-size: 6px; animation: blink 2s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
   /* FOOTER */
-  footer { background: var(--pool-deep); padding: 44px 5% 32px; }
-  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 28px; }
-  .footer-brand { font-size: 18px; font-weight: 900; color: rgba(255,255,255,0.7); margin-bottom: 4px; }
-  .footer-brand-sub { font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 2px; text-transform: uppercase; }
+  footer { background: var(--dark); padding: 52px 6% 40px; position: relative; overflow: hidden; }
+  footer::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.3;
+  }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; padding-bottom: 44px; border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 32px; }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 400; color: rgba(248,244,238,0.6); margin-bottom: 6px; letter-spacing: 1px; }
+  .footer-brand em { font-style: italic; color: var(--gold); }
+  .footer-brand-sub { font-size: 9px; color: rgba(248,244,238,0.2); letter-spacing: 3px; text-transform: uppercase; font-weight: 300; }
   .footer-col { display: flex; flex-direction: column; gap: 10px; }
-  .footer-col-title { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--pool-pale); margin-bottom: 4px; opacity: 0.75; }
-  .footer-col a { font-size: 13px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
-  .footer-col a:hover { color: rgba(255,255,255,0.8); }
-  .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
-  .footer-tag { font-family: 'Lora', serif; font-size: 13px; font-style: italic; color: var(--pool-pale); opacity: 0.45; }
+  .footer-col-title { font-size: 9px; font-weight: 400; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; opacity: 0.7; }
+  .footer-col a { font-size: 13px; color: rgba(248,244,238,0.28); text-decoration: none; font-weight: 300; letter-spacing: 0.5px; transition: color 0.2s; }
+  .footer-col a:hover { color: rgba(248,244,238,0.7); }
+  .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .footer-copy { font-size: 11px; color: rgba(248,244,238,0.15); font-weight: 300; letter-spacing: 0.5px; }
+  .footer-tagline { font-family: 'Playfair Display', serif; font-size: 13px; font-style: italic; color: var(--gold); opacity: 0.35; }
 
-  @media (max-width: 860px) {
-    .hero-inner, .cat-grid, .booking-layout { grid-template-columns: 1fr; }
-    .hero-card { display: none; }
-    .nav-links { display: none; }
+  @media (max-width: 960px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .nav-center { display: none; }
     .form-row { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .curtain-left, .curtain-right, .curtain-rod { display: none; }
+    nav { left: 0; right: 0; }
+  }
+  @media (max-width: 560px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: column; gap: 20px; }
+    .hstat { border: none; padding: 0; margin: 0; }
   }
 </style>
 </head>
 <body>
 
+<!-- CURTAIN EFFECT -->
+<div class="curtain-rod"></div>
+<div class="curtain-left"></div>
+<div class="curtain-right"></div>
+
 <nav>
-  <div>
-    <div class="nav-logo-main">🏊 Hawthorne's Pool Service</div>
-    <div class="nav-logo-sub">Sarasota, FL · 5.0 Star Rated</div>
+  <div class="nav-logo">
+    <div class="nav-logo-main">Somers <em>Drapery</em></div>
+    <div class="nav-logo-sub">Sarasota, Florida · Est. Specialists</div>
   </div>
-  <div class="nav-links">
-    <a href="#why">Why Us</a>
+  <div class="nav-center">
     <a href="#services">Services</a>
+    <a href="#about">About</a>
     <a href="#reviews">Reviews</a>
-    <a href="#booking">Contact</a>
+    <a href="#contact">Contact</a>
   </div>
-  <a href="tel:9417805002" class="nav-cta">☀️ (941) 780-5002</a>
+  <a href="tel:9419557877" class="nav-cta">Call Us</a>
 </nav>
 
 <!-- HERO -->
-<section class="hero" style="padding:0;">
-  <div class="hero-overlay"></div>
-  <div class="hero-palm-r">🌴</div>
-  <div class="hero-palm-l">🌴</div>
-  <div class="hero-inner">
-    <div>
-      <div class="hero-eyebrow"><div class="eyebrow-dot"></div> Sarasota's #1 Rated Pool Service</div>
-      <h1><span class="script">Your Pool Deserves the Best</span>Expert Care,<br>Every Week.</h1>
-      <p class="hero-sub">Hawthorne's Pool Service brings honest, skilled, and thorough pool care to Sarasota homes. Cat and the team go above and beyond — finding fixes others miss and saving you thousands.</p>
-      <div class="hero-pills">
-        <div class="hero-pill">⭐ 5.0 Rated · 12 Reviews</div>
-        <div class="hero-pill">🌴 Sarasota, FL</div>
-        <div class="hero-pill">🏊 Licensed Pool Pros</div>
-      </div>
-      <div class="hero-btns">
-        <a href="#booking" class="btn-sun">🏊 Book a Service</a>
-        <a href="tel:9417805002" class="btn-ghost">📞 (941) 780-5002</a>
-      </div>
+<section class="hero">
+  <div class="hero-fabric"></div>
+  <div class="hero-drape-l"></div>
+  <div class="hero-drape-r"></div>
+  <div class="hero-tieback-l"></div>
+  <div class="hero-tieback-r"></div>
+  <div class="hero-fringe"></div>
+  <div class="hero-content">
+    <div class="hero-overline">
+      <div class="overline-bar"></div>
+      <div class="overline-text">Sarasota's Drapery & Cleaning Specialists</div>
     </div>
-    <div class="hero-card">
-      <div class="hero-card-label">At a Glance</div>
-      <div class="hstat">
-        <div class="hstat-num">5.0<sup>★</sup></div>
-        <div class="hstat-label">Perfect Google Rating</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-num">12</div>
-        <div class="hstat-label">Five-Star Reviews</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-num">Cat</div>
-        <div class="hstat-label">Owner On Every Job</div>
-      </div>
+    <h1>The Art of<br><em>Immaculate</em><br>Drapes.</h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">Somers Drapery brings expert cleaning and care to your most precious soft furnishings — draperies, blinds, area rugs, and outdoor fabric — with the delicacy each piece deserves.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-gold">Schedule a Service</a>
+      <a href="#services" class="hero-link">Explore Services →</a>
     </div>
-  </div>
-  <div class="hero-wave">
-    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#2d6a4f" d="M0,48L60,42C120,37,240,26,360,28C480,30,600,44,720,50C840,55,960,51,1080,44C1200,37,1320,26,1380,21L1440,16L1440,80L0,80Z"/>
-    </svg>
-  </div>
-</section>
-
-<!-- TRUST -->
-<div class="trust">
-  <div class="trust-item">🏊 Licensed Pool Professionals</div>
-  <div class="trust-item">⭐ 5.0 Perfect Rating</div>
-  <div class="trust-item">🌴 Sarasota Local</div>
-  <div class="trust-item">🤝 Honest & Transparent</div>
-  <div class="trust-item">💰 Fair Pricing</div>
-</div>
-
-<!-- WHY CAT -->
-<section class="cat-bg" id="why">
-  <div class="cat-overlay"></div>
-  <div class="cat-palm-r">🌴</div>
-  <div class="cat-inner">
-    <div class="stag">🏊 Why Hawthorne's</div>
-    <div class="stitle">Honest Pool Care from<br><em>Cat & the Team.</em></div>
-    <p class="ssub">Cat runs Hawthorne's the right way — telling you exactly what's needed, explaining costs upfront, and going above and beyond to save you money. The reviews speak for themselves.</p>
-    <div class="cat-grid">
-      <div class="reasons">
-        <div class="reason">
-          <div class="reason-icon">💰</div>
-          <div>
-            <div class="reason-title">They'll Save You Thousands</div>
-            <div class="reason-text">Another company quoted $5,000 to replace a heater. Cat found a simple repair issue and fixed it during a regular service visit — at no extra charge.</div>
-          </div>
-        </div>
-        <div class="reason">
-          <div class="reason-icon">📋</div>
-          <div>
-            <div class="reason-title">Full Transparency on Costs</div>
-            <div class="reason-text">They tell you what needs to be done, lay out expected costs, and help you understand your pool system. No surprises, no upsells.</div>
-          </div>
-        </div>
-        <div class="reason">
-          <div class="reason-icon">🔧</div>
-          <div>
-            <div class="reason-title">Expert Repairs</div>
-            <div class="reason-text">Weekly service plus expert repairs — pump installation, heater diagnosis, system troubleshooting. Cat answers every question clearly and thoroughly.</div>
-          </div>
-        </div>
-        <div class="reason">
-          <div class="reason-icon">🌴</div>
-          <div>
-            <div class="reason-title">Sarasota Local & Licensed</div>
-            <div class="reason-text">A licensed Sarasota pool company that knows Florida pools inside and out. Professional, honest, and invested in the community they serve.</div>
-          </div>
-        </div>
+    <div class="hero-stats">
+      <div class="hstat">
+        <div class="hstat-num">4.0<span>★</span></div>
+        <div class="hstat-label">Google Rated</div>
       </div>
-      <div class="cat-card">
-        <div class="cat-card-title">Why Customers Choose Hawthorne's</div>
-        <div class="cstat">
-          <div class="cstat-num">5.0★</div>
-          <div class="cstat-label">Perfect Google rating from 12 verified reviews</div>
-        </div>
-        <div class="cstat">
-          <div class="cstat-num">$0</div>
-          <div class="cstat-label">Cat fixed a heater issue during regular service at no extra charge</div>
-        </div>
-        <div class="cstat">
-          <div class="cstat-num">100%</div>
-          <div class="cstat-label">Honest about costs before any work begins</div>
-        </div>
-        <div class="honest-badge">
-          <div class="honest-title">💰 Real Money Saved</div>
-          <div class="honest-text">"Another company told me my pool heater was shot — needs replaced for $5,000. Cat found a simple repair issue and fixed it while here on regular service day, no charge!" — Samiir T.</div>
-        </div>
+      <div class="hstat">
+        <div class="hstat-num">Years</div>
+        <div class="hstat-label">In Business</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">Care</div>
+        <div class="hstat-label">Every Fabric</div>
       </div>
     </div>
   </div>
 </section>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-ornament">✦</div><div class="divider-line"></div></div>
 
 <!-- SERVICES -->
 <section class="services-bg" id="services">
-  <div class="services-overlay"></div>
-  <div class="services-inner">
-    <div class="stag">🏊 Our Services</div>
-    <div class="stitle">Everything Your <em>Pool</em> Needs.</div>
-    <p class="ssub">From weekly cleaning to expert repairs — Hawthorne's handles it all with the same skill and honesty that's earned them a perfect 5-star rating.</p>
-    <div class="services-grid">
-      <div class="svc">
-        <div class="svc-icon">🗓️</div>
-        <div class="svc-name">Weekly Pool Service</div>
-        <div class="svc-tag">Consistent, thorough, reliable.</div>
-        <div class="svc-desc">Excellent weekly service that keeps your pool clean, balanced, and healthy all year round. Customers rave about the consistency and thoroughness every single visit.</div>
-      </div>
-      <div class="svc">
-        <div class="svc-icon">🔧</div>
-        <div class="svc-name">Expert Pool Repairs</div>
-        <div class="svc-tag">Find the real problem. Fix it right.</div>
-        <div class="svc-desc">Cat diagnoses pool issues other companies miss. Pump installation, heater repair, system troubleshooting — done right the first time, with full cost transparency upfront.</div>
-      </div>
-      <div class="svc">
-        <div class="svc-icon">💧</div>
-        <div class="svc-name">Pump Service & Installation</div>
-        <div class="svc-tag">Excellent job every time.</div>
-        <div class="svc-desc">New pump installation and existing pump service. Cat's work on pump installation has been specifically praised by customers as excellent — done with care and precision.</div>
-      </div>
-      <div class="svc">
-        <div class="svc-icon">🌡️</div>
-        <div class="svc-name">Heater Diagnosis & Repair</div>
-        <div class="svc-tag">Don't pay for what you don't need.</div>
-        <div class="svc-desc">Get a second opinion before spending thousands. Cat has saved customers from unnecessary $5,000+ replacements by finding simple repair solutions during regular service.</div>
-      </div>
-      <div class="svc">
-        <div class="svc-icon">🧪</div>
-        <div class="svc-name">Water Chemistry & Balancing</div>
-        <div class="svc-tag">Crystal clear, every week.</div>
-        <div class="svc-desc">Professional water testing and chemical balancing to keep your pool safe, clear, and comfortable. Cat explains exactly what she's doing and why.</div>
-      </div>
-      <div class="svc" style="background:linear-gradient(135deg, var(--pool-deep), var(--pool-dark)); border-color:var(--pool);">
-        <div class="svc-icon">🎓</div>
-        <div class="svc-name" style="color:#fff;">Pool System Education</div>
-        <div class="svc-tag" style="color:var(--pool-pale);">Understand your investment.</div>
-        <div class="svc-desc" style="color:rgba(255,255,255,0.65);">Cat takes the time to help you understand your pool system and how to maintain it. Knowledgeable, patient, and genuinely invested in your pool's health.</div>
-      </div>
+  <div class="s-overline"><div class="s-bar"></div><div class="s-tag">Our Specialties</div></div>
+  <div class="s-title">Expert Care for<br><em>Every Fabric.</em></div>
+  <p class="s-sub">From delicate silk draperies to outdoor furniture cushions — Somers brings decades of specialist expertise to every piece entrusted to our care.</p>
+  <div class="services-grid">
+    <div class="svc">
+      <div class="svc-num">I — Drapery</div>
+      <div class="svc-icon">🪟</div>
+      <div class="svc-name">Drapery & Curtain Cleaning</div>
+      <div class="svc-desc">Professional cleaning of draperies and curtains of all fabrics and styles. We understand that your drapes are an investment — our process protects color, texture, and structure through every clean.</div>
+    </div>
+    <div class="svc">
+      <div class="svc-num">II — Blinds</div>
+      <div class="svc-icon">🔲</div>
+      <div class="svc-name">Blind Cleaning</div>
+      <div class="svc-desc">Specialist cleaning for all blind types including Hunter Douglas and other premium brands. Meticulous attention to each slat — restoring them to like-new condition without damage.</div>
+    </div>
+    <div class="svc">
+      <div class="svc-num">III — Rugs</div>
+      <div class="svc-icon">🏡</div>
+      <div class="svc-name">Area Rug Cleaning</div>
+      <div class="svc-desc">Deep cleaning of area rugs with care for delicate fibers, dyes, and construction. Customers describe results that leave them extremely happy — rugs restored to their original beauty.</div>
+    </div>
+    <div class="svc">
+      <div class="svc-num">IV — Outdoor</div>
+      <div class="svc-icon">☀️</div>
+      <div class="svc-name">Outdoor Furniture & Cushions</div>
+      <div class="svc-desc">Thorough cleaning of outdoor furniture, cushions, and pillows — without rushing through the process. Results so clean customers say they look like new.</div>
+    </div>
+    <div class="svc">
+      <div class="svc-num">V — Upholstery</div>
+      <div class="svc-icon">🛋️</div>
+      <div class="svc-name">Upholstery Cleaning</div>
+      <div class="svc-desc">Careful cleaning of upholstered furniture with fabric-appropriate methods. We treat every piece with the same respect we'd give our own.</div>
+    </div>
+    <div class="svc">
+      <div class="svc-num">VI — Pickup</div>
+      <div class="svc-icon">🚛</div>
+      <div class="svc-name">Pickup & Delivery</div>
+      <div class="svc-desc">We come to you — arriving on time, working thoroughly, and treating your home and furnishings with care and professionalism from start to finish.</div>
     </div>
   </div>
 </section>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-ornament">✦</div><div class="divider-line"></div></div>
+
+<!-- ABOUT -->
+<section class="about-bg" id="about">
+  <div class="about-grid">
+    <div>
+      <div class="s-overline"><div class="s-bar"></div><div class="s-tag">Who We Are</div></div>
+      <div class="s-title">Trusted by Sarasota<br>for <em>Years.</em></div>
+      <p class="s-sub">Somers Drapery has been a trusted name in Sarasota's home care scene for years — building a loyal customer base through consistent quality, professionalism, and a genuine love for the craft.</p>
+      <div class="values">
+        <div class="val"><div class="val-num">I</div><div><div class="val-title">Delicate Care</div><div class="val-text">We understand that draperies and blinds are significant investments. Every piece is handled with the delicacy and expertise it deserves.</div></div></div>
+        <div class="val"><div class="val-num">II</div><div><div class="val-title">On Time, Every Time</div><div class="val-text">We arrive when we say we will and work thoroughly without rushing. Your time and your home are respected throughout every visit.</div></div></div>
+        <div class="val"><div class="val-num">III</div><div><div class="val-title">Long-Term Relationships</div><div class="val-text">Many of our customers have been with us for years. That kind of loyalty is only earned through consistent, trustworthy service.</div></div></div>
+        <div class="val"><div class="val-num">IV</div><div><div class="val-title">Specialist Knowledge</div><div class="val-text">Not all fabrics are the same. Our expertise across drapery, blinds, rugs, and outdoor fabrics ensures the right treatment every time.</div></div></div>
+      </div>
+    </div>
+    <div class="about-card">
+      <div class="about-card-title">Why Somers</div>
+      <div class="astat"><div class="astat-num">4.0<span>★</span></div><div class="astat-label">Google rating from Sarasota homeowners</div></div>
+      <div class="astat"><div class="astat-num">Years<span>+</span></div><div class="astat-label">Serving the Sarasota community</div></div>
+      <div class="astat"><div class="astat-num">All</div><div class="astat-label">Fabric types — drapery, blinds, rugs, outdoor</div></div>
+      <div class="astat"><div class="astat-num">On-site</div><div class="astat-label">We come to you — pickup & delivery included</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-ornament">✦</div><div class="divider-line"></div></div>
 
 <!-- REVIEWS -->
 <section class="reviews-bg" id="reviews">
-  <div class="reviews-overlay"></div>
-  <div class="reviews-palm-r">🌴</div>
-  <div class="reviews-inner">
-    <div class="stag">⭐ Reviews</div>
-    <div class="stitle">What Sarasota <em>Homeowners</em> Say.</div>
-    <div class="reviews-top">
-      <div class="score-big">5.0</div>
-      <div>
-        <div class="score-stars">★★★★★</div>
-        <div style="font-size:16px; font-weight:800; color:#fff; margin-top:4px;">12 Google Reviews · Perfect Rating</div>
-        <div class="score-label">Sarasota, FL · Verified</div>
-      </div>
+  <div class="s-overline"><div class="s-bar"></div><div class="s-tag">Client Reviews</div></div>
+  <div class="s-title">What Our Customers<br><em>Are Saying.</em></div>
+  <div class="reviews-header">
+    <div class="score-num">4.0</div>
+    <div>
+      <div class="score-stars">★★★★☆</div>
+      <div style="font-family:'Playfair Display',serif; font-size:16px; color:var(--dark); margin-top:6px; font-weight:400;">10 Google Reviews</div>
+      <div class="score-label">Sarasota, FL · Verified</div>
     </div>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">"She installed a new pump for me a few years ago and did an excellent job. I ask a lot of questions, and it was crystal clear that Cat really knows her stuff. She answered every question clearly and thoroughly."</div>
-        <div class="review-name">dfox3526</div>
-        <div class="review-meta">Google Review · 9 reviews · 1 year ago</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">"They take the time to tell you what needs to be done, lay out the expected costs, and help you understand your pool system. Very professional and honest — not once did I feel pressured."</div>
-        <div class="review-name">Justin White</div>
-        <div class="review-meta">Google Review · 6 reviews · 3 years ago</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">"Weekly service is excellent and expert repairs. Another company told me my pool heater was shot — $5,000 to replace. Cat found a simple repair issue and fixed it during regular service, no charge!"</div>
-        <div class="review-name">Samiir Thakkar</div>
-        <div class="review-meta">Google Review · 2 reviews · 3 years ago</div>
-      </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"I am SO glad that I found Somers. My draperies were expensive and I didn't want to go to just any cleaners. They were wonderful. Great service and we are extremely happy with the drapes, blinds and area rug."</div>
+      <div class="review-author">Pat Girgenti</div>
+      <div class="review-meta">Google Review · 6 reviews · 6 years ago</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"They arrived on time and immediately started cleaning the outdoor furniture and pillows, very thoroughly and without rushing through the cleaning process. The outdoor furniture and pillows are So Clean like New!"</div>
+      <div class="review-author">Paulomi Desai</div>
+      <div class="review-meta">Google Local Guide · 62 reviews · 5 years ago</div>
     </div>
   </div>
 </section>
 
-<!-- BOOKING -->
-<section class="booking-bg" id="booking">
-  <div class="booking-overlay"></div>
-  <div class="booking-inner">
-    <div class="booking-layout">
-      <div class="contact-info">
-        <div class="stag">📞 Get in Touch</div>
-        <div class="contact-title">Book a Service<br>or <em>Free Estimate.</em></div>
-        <div class="contact-sub">Fill out the form and Cat will be in touch to discuss your pool. Or call directly — Hawthorne's is open 9 AM to 5 PM.</div>
-        <div class="clist">
-          <div class="citem">
-            <div class="cicon">📞</div>
-            <div>
-              <div class="clabel">Phone</div>
-              <div class="cval">(941) 780-5002</div>
-              <div class="cnote">Mon–Sat during business hours</div>
-              <div class="open-pill">Open · Closes 5 PM</div>
-            </div>
+<div class="divider"><div class="divider-line"></div><div class="divider-ornament">✦</div><div class="divider-line"></div></div>
+
+<!-- CONTACT -->
+<section class="contact-bg" id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="s-overline"><div class="s-bar"></div><div class="s-tag">Get in Touch</div></div>
+      <div class="contact-title">Schedule a<br><em>Service.</em></div>
+      <div class="contact-sub">Fill out the form and we'll be in touch to arrange your service. Or call us directly during business hours — we're always happy to discuss your needs.</div>
+      <div class="clist">
+        <div class="citem">
+          <div class="cicon">📞</div>
+          <div>
+            <div class="clabel">Phone</div>
+            <div class="cval">(941) 955-7877</div>
+            <div class="cnote">Call during business hours</div>
+            <div class="open-tag">Open · Closes 4 PM</div>
           </div>
-          <div class="citem">
-            <div class="cicon">📍</div>
-            <div>
-              <div class="clabel">Address</div>
-              <div class="cval">4009 Vana Dr</div>
-              <div class="cnote">Sarasota, FL 34241</div>
-            </div>
+        </div>
+        <div class="citem">
+          <div class="cicon">📍</div>
+          <div>
+            <div class="clabel">Address</div>
+            <div class="cval">2029 Princeton St</div>
+            <div class="cnote">Sarasota, FL 34237 · Merchants Pointe Shopping Center</div>
           </div>
-          <div class="citem">
-            <div class="cicon">⭐</div>
-            <div>
-              <div class="clabel">Rating</div>
-              <div class="cval">5.0 Stars · 12 Reviews</div>
-              <div class="cnote">"Really impressive service." — Verified Google Customer</div>
-            </div>
-          </div>
-          <div class="citem">
-            <div class="cicon">🏊</div>
-            <div>
-              <div class="clabel">Owner</div>
-              <div class="cval">Cat — Licensed Pool Professional</div>
-              <div class="cnote">Personally involved on every job</div>
-            </div>
+        </div>
+        <div class="citem">
+          <div class="cicon">⭐</div>
+          <div>
+            <div class="clabel">Rating</div>
+            <div class="cval">4.0 Stars · 10 Reviews</div>
+            <div class="cnote">"Great service — extremely happy with the results."</div>
           </div>
         </div>
       </div>
-      <div class="form-card">
-        <div class="form-title">🏊 Book an Appointment</div>
-        <div class="form-sub">We'll confirm your appointment quickly.</div>
-        <form action="https://formspree.io/f/mzdoepjp" method="POST">
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" name="first_name" placeholder="John">
-          </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" name="last_name" placeholder="Smith">
-          </div>
+    </div>
+    <div class="form-wrap">
+      <div class="form-title">Request a Service</div>
+      <div class="form-sub">We'll be in touch within one business day.</div>
+      <form action="https://formspree.io/f/mzdoepjp" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" name="first_name" placeholder="Jane">
         </div>
         <div class="form-group">
-          <label>Phone Number</label>
-          <input type="tel" name="phone" placeholder="(941) 555-0000">
+          <label>Last Name</label>
+          <input type="text" name="last_name" placeholder="Smith">
         </div>
-        <div class="form-group">
-          <label>Property Address</label>
-          <input type="text" name="address" placeholder="123 Main St, Sarasota FL">
-        </div>
-        <div class="form-group">
-          <label>Service Needed</label>
-          <select name="service">
-            <option value="">Select a service...</option>
-            <option>Weekly Pool Service</option>
-            <option>Pool Repair</option>
-            <option>Pump Service or Installation</option>
-            <option>Heater Diagnosis or Repair</option>
-            <option>Water Chemistry & Balancing</option>
-            <option>Full Pool Assessment</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Tell Us About Your Pool</label>
-          <textarea name="message" placeholder="Describe your pool, any current issues, or what you need..."></textarea>
-        </div>
-        <button class="form-submit">☀️ Submit Request</button>
-        </form>
       </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" name="phone" placeholder="(941) 555-0000">
+      </div>
+      <div class="form-group">
+        <label>Service Needed</label>
+        <select name="service">
+          <option value="">Select a service...</option>
+          <option>Drapery & Curtain Cleaning</option>
+          <option>Blind Cleaning</option>
+          <option>Area Rug Cleaning</option>
+          <option>Outdoor Furniture & Cushions</option>
+          <option>Upholstery Cleaning</option>
+          <option>Multiple Services</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Additional Details</label>
+        <textarea name="message" placeholder="Tell us about the items you'd like cleaned — fabric type, size, any special concerns..."></textarea>
+      </div>
+      <button class="form-submit">Send Request</button>
+      </form>
     </div>
   </div>
 </section>
@@ -525,31 +561,31 @@
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-brand">🏊 Hawthorne's Pool Service Inc</div>
-      <div class="footer-brand-sub">4009 Vana Dr · Sarasota, FL 34241 · Licensed</div>
+      <div class="footer-brand">Somers <em>Drapery</em></div>
+      <div class="footer-brand-sub">2029 Princeton St · Sarasota, FL 34237</div>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Services</div>
-      <a href="#services">Weekly Pool Service</a>
-      <a href="#services">Pool Repairs</a>
-      <a href="#services">Pump Service</a>
-      <a href="#services">Heater Repair</a>
+      <a href="#services">Drapery Cleaning</a>
+      <a href="#services">Blind Cleaning</a>
+      <a href="#services">Area Rugs</a>
+      <a href="#services">Outdoor Furniture</a>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Company</div>
-      <a href="#why">About Cat</a>
+      <a href="#about">About</a>
       <a href="#reviews">Reviews</a>
-      <a href="#booking">Contact</a>
+      <a href="#contact">Contact</a>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Contact</div>
-      <a href="tel:9417805002">(941) 780-5002</a>
-      <a href="#booking">Book a Service</a>
+      <a href="tel:9419557877">(941) 955-7877</a>
+      <a href="#contact">Request a Service</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Hawthorne's Pool Service Inc · Sarasota, FL · All Rights Reserved</div>
-    <div class="footer-tag">Honest Pool Care. Expert Results. Every Time.</div>
+    <div class="footer-copy">© 2026 Somers Drapery · Sarasota, FL · All Rights Reserved</div>
+    <div class="footer-tagline">The Art of Immaculate Drapes.</div>
   </div>
 </footer>
 
