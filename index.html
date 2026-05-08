@@ -3,48 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sam's Grapple Truck Service | Sarasota, FL</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Sarasota Bee Removal Inc | Honey Bee, Wasp & Hornet Removal</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --dark: #0e1208;
-    --dark2: #161c0e;
-    --green: #3a7d1e;
-    --green-light: #52a828;
-    --green-pale: #d4edba;
-    --orange: #e07020;
-    --orange-light: #f08838;
-    --cream: #fdfaf4;
-    --sand: #f5f0e4;
-    --text: #0e1a08;
-    --muted: #4a5e38;
-    --border: rgba(58,125,30,0.2);
+    --honey: #e8a020;
+    --honey-dark: #c07a10;
+    --honey-light: #f5c040;
+    --honey-pale: #fef3d0;
+    --black: #1a1200;
+    --dark: #1e1800;
+    --dark2: #2a2000;
+    --brown: #4a3010;
+    --cream: #fdfaf0;
+    --sand: #faf5e4;
+    --text: #1a1200;
+    --muted: #5a4a20;
+    --border: rgba(232,160,32,0.2);
   }
   html { scroll-behavior: smooth; }
-  body { font-family: 'Barlow', sans-serif; color: var(--text); background: var(--cream); line-height: 1.6; }
+  body { font-family: 'Nunito', sans-serif; color: var(--text); background: var(--cream); line-height: 1.6; }
   ::-webkit-scrollbar { width: 5px; }
-  ::-webkit-scrollbar-thumb { background: var(--green-light); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb { background: var(--honey); border-radius: 3px; }
+
+  /* === HONEYCOMB PATTERN === */
+  .honeycomb-bg {
+    background-color: var(--dark);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V17L28 0l28 17v33L28 66zm0-2l26-15V19L28 2 2 19v30l26 15z' fill='rgba(232,160,32,0.08)'/%3E%3C/svg%3E");
+  }
 
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(14,18,8,0.98); backdrop-filter: blur(16px);
-    border-bottom: 3px solid var(--green-light);
+    background: rgba(26,18,0,0.97); backdrop-filter: blur(16px);
+    border-bottom: 3px solid var(--honey);
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 5%; height: 70px;
     box-shadow: 0 2px 24px rgba(0,0,0,0.5);
   }
-  .nav-logo-main { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px; line-height: 1.1; }
-  .nav-logo-main span { color: var(--green-light); }
-  .nav-logo-sub { font-size: 10px; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase; }
+  .nav-logo-main { font-size: 17px; font-weight: 900; color: #fff; line-height: 1.2; }
+  .nav-logo-main span { color: var(--honey-light); }
+  .nav-logo-sub { font-size: 10px; color: rgba(255,255,255,0.4); letter-spacing: 1.5px; text-transform: uppercase; }
+  .nav-bee { font-size: 24px; margin-right: 8px; }
   .nav-links { display: flex; gap: 28px; }
   .nav-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 12px; font-weight: 600; transition: color 0.2s; text-transform: uppercase; letter-spacing: 0.5px; }
-  .nav-links a:hover { color: var(--green-light); }
+  .nav-links a:hover { color: var(--honey-light); }
   .nav-right { display: flex; align-items: center; gap: 16px; }
   .nav-phone { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.8); text-decoration: none; }
-  .nav-cta { background: var(--orange); color: #fff; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; padding: 10px 22px; text-decoration: none; transition: all 0.2s; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 4px; white-space: nowrap; }
-  .nav-cta:hover { background: var(--orange-light); transform: translateY(-1px); }
+  .nav-cta { background: var(--honey); color: var(--black); font-size: 13px; font-weight: 800; padding: 10px 22px; border-radius: 50px; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 14px rgba(232,160,32,0.4); white-space: nowrap; }
+  .nav-cta:hover { transform: translateY(-1px); background: var(--honey-light); }
 
   /* HERO */
   .hero {
@@ -54,159 +62,162 @@
   }
   .hero-bg {
     position: absolute; inset: 0;
-    background: url('sams_certi.jpg') center/cover no-repeat;
-    opacity: 0.15;
+    background: url('https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=1800&q=80') center/cover no-repeat;
+    opacity: 0.22;
   }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(14,18,8,0.97) 0%, rgba(14,18,8,0.8) 50%, rgba(14,18,8,0.5) 100%); }
-  .hero-green-glow { position: absolute; top: -100px; right: -100px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(58,125,30,0.15) 0%, transparent 65%); pointer-events: none; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(26,18,0,0.97) 0%, rgba(26,18,0,0.75) 55%, rgba(26,18,0,0.4) 100%); }
+  /* Honeycomb pattern overlay */
+  .hero-hc { position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V17L28 0l28 17v33L28 66zm0-2l26-15V19L28 2 2 19v30l26 15z' fill='rgba(232,160,32,0.04)'/%3E%3C/svg%3E"); pointer-events: none; }
+  .hero-glow { position: absolute; top: -80px; right: -80px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(232,160,32,0.15) 0%, transparent 65%); pointer-events: none; }
   .hero-wave { position: absolute; bottom: -2px; left: 0; right: 0; z-index: 2; }
   .hero-wave svg { display: block; width: 100%; }
   .hero-inner { position: relative; z-index: 3; padding: 90px 5% 80px; width: 100%; display: grid; grid-template-columns: 1fr 320px; gap: 60px; align-items: center; }
-  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(58,125,30,0.15); border: 1px solid rgba(58,125,30,0.4); color: var(--green-light); font-size: 11px; font-weight: 700; padding: 5px 14px; margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase; }
-  .edot { width: 6px; height: 6px; border-radius: 50%; background: var(--green-light); animation: pulse 2s infinite; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(232,160,32,0.12); border: 1px solid rgba(232,160,32,0.35); color: var(--honey-light); font-size: 11px; font-weight: 700; padding: 5px 14px; border-radius: 50px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+  .edot { width: 6px; height: 6px; border-radius: 50%; background: var(--honey-light); animation: pulse 2s infinite; }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-  h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(52px, 8vw, 100px); font-weight: 900; color: #fff; line-height: 0.92; letter-spacing: -1px; margin-bottom: 24px; text-transform: uppercase; text-shadow: 0 2px 20px rgba(0,0,0,0.4); }
-  h1 .green { color: var(--green-light); }
-  h1 .orange { color: var(--orange); }
-  .hero-sub { font-size: 16px; color: rgba(255,255,255,0.62); max-width: 520px; line-height: 1.8; margin-bottom: 36px; font-weight: 400; }
+  h1 { font-size: clamp(44px, 7vw, 84px); font-weight: 900; color: #fff; line-height: 1.0; letter-spacing: -1px; margin-bottom: 20px; text-shadow: 0 2px 20px rgba(0,0,0,0.5); }
+  h1 .honey { color: var(--honey-light); }
+  h1 .script { font-family: 'Lora', serif; font-style: italic; color: var(--honey); display: block; font-size: 0.62em; font-weight: 600; margin-bottom: 4px; }
+  .hero-sub { font-size: 15px; color: rgba(255,255,255,0.65); max-width: 500px; line-height: 1.85; margin-bottom: 36px; font-weight: 400; }
   .hero-pills { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
-  .hero-pill { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); font-size: 11px; font-weight: 600; padding: 5px 14px; }
-  .hero-pill.gr { background: rgba(58,125,30,0.12); border-color: rgba(58,125,30,0.35); color: var(--green-light); }
+  .hero-pill { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); font-size: 11px; font-weight: 700; padding: 5px 14px; border-radius: 50px; }
+  .hero-pill.gold { background: rgba(232,160,32,0.12); border-color: rgba(232,160,32,0.35); color: var(--honey-light); }
   .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 52px; }
-  .btn-orange { background: var(--orange); color: #fff; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; padding: 16px 40px; text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; letter-spacing: 2px; text-transform: uppercase; box-shadow: 0 6px 20px rgba(224,112,32,0.35); border-radius: 4px; }
-  .btn-orange:hover { background: var(--orange-light); transform: translateY(-2px); }
-  .btn-outline { background: transparent; color: #fff; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 600; padding: 14px 28px; text-decoration: none; border: 2px solid rgba(255,255,255,0.25); transition: all 0.2s; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 4px; }
-  .btn-outline:hover { border-color: var(--green-light); color: var(--green-light); }
+  .btn-honey { background: var(--honey); color: var(--black); font-size: 13px; font-weight: 800; padding: 14px 32px; border-radius: 50px; text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 6px 20px rgba(232,160,32,0.4); }
+  .btn-honey:hover { transform: translateY(-2px); background: var(--honey-light); }
+  .btn-ghost { background: rgba(255,255,255,0.08); color: #fff; font-size: 13px; font-weight: 700; padding: 14px 28px; border-radius: 50px; text-decoration: none; border: 2px solid rgba(255,255,255,0.25); transition: all 0.2s; }
+  .btn-ghost:hover { border-color: var(--honey); color: var(--honey-light); }
 
   /* HERO CARD */
-  .hero-card { background: rgba(14,18,8,0.85); backdrop-filter: blur(16px); border: 1px solid rgba(58,125,30,0.25); border-top: 3px solid var(--green-light); padding: 36px 32px; }
-  .hero-card-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; color: var(--green-light); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 24px; font-weight: 700; }
+  .hero-card { background: rgba(26,18,0,0.85); backdrop-filter: blur(16px); border: 1px solid rgba(232,160,32,0.25); border-top: 3px solid var(--honey); padding: 36px 32px; }
+  .hero-card-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--honey-light); font-weight: 700; margin-bottom: 24px; }
   .hstat { padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: flex-end; gap: 12px; }
   .hstat:last-child { border: none; padding-bottom: 0; }
-  .hstat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 46px; font-weight: 900; color: #fff; line-height: 1; letter-spacing: -1px; }
-  .hstat-num span { color: var(--green-light); font-size: 20px; }
-  .hstat-label { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 1px; text-transform: uppercase; line-height: 1.4; padding-bottom: 7px; font-weight: 500; }
-  .sam-badge { margin-top: 20px; padding: 16px; background: rgba(224,112,32,0.1); border: 1px solid rgba(224,112,32,0.25); }
-  .sam-title { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; color: var(--orange-light); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; font-weight: 700; }
-  .sam-text { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; font-weight: 300; }
+  .hstat-num { font-size: 44px; font-weight: 900; color: #fff; line-height: 1; letter-spacing: -1px; }
+  .hstat-num span { color: var(--honey-light); font-size: 20px; }
+  .hstat-label { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 1px; text-transform: uppercase; line-height: 1.4; padding-bottom: 6px; }
+  .cody-badge { margin-top: 20px; padding: 16px; background: rgba(232,160,32,0.08); border: 1px solid rgba(232,160,32,0.2); }
+  .cody-title { font-size: 11px; color: var(--honey-light); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; font-weight: 700; }
+  .cody-text { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; font-weight: 300; }
 
   /* TICKER */
-  .ticker { background: var(--green); padding: 13px 0; overflow: hidden; }
-  .ticker-track { display: flex; animation: scroll 24s linear infinite; white-space: nowrap; }
+  .ticker { background: var(--honey-dark); padding: 13px 0; overflow: hidden; }
+  .ticker-track { display: flex; animation: scroll 26s linear infinite; white-space: nowrap; }
   @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  .ticker-item { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.9); padding: 0 28px; display: flex; align-items: center; gap: 14px; }
+  .ticker-item { font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #fff; padding: 0 28px; display: flex; align-items: center; gap: 14px; }
   .tdot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.5); }
 
   /* SECTIONS */
   section { padding: 90px 5%; }
-  .stag { display: inline-flex; align-items: center; gap: 8px; background: rgba(58,125,30,0.08); border-left: 3px solid var(--green-light); color: var(--green); font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; padding: 5px 14px; margin-bottom: 16px; letter-spacing: 2px; text-transform: uppercase; }
-  .stitle { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(34px, 5vw, 56px); font-weight: 900; color: var(--text); letter-spacing: -0.5px; line-height: 0.95; margin-bottom: 14px; text-transform: uppercase; }
-  .stitle .gr { color: var(--green); }
-  .stitle .or { color: var(--orange); }
+  .stag { display: inline-flex; align-items: center; gap: 8px; background: var(--honey-pale); border: 1px solid rgba(232,160,32,0.3); color: var(--honey-dark); font-size: 11px; font-weight: 700; padding: 5px 14px; border-radius: 50px; margin-bottom: 16px; letter-spacing: 1px; text-transform: uppercase; }
+  .stitle { font-size: clamp(28px, 4vw, 46px); font-weight: 900; color: var(--text); letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 14px; }
+  .stitle em { font-family: 'Lora', serif; font-style: italic; color: var(--honey-dark); }
   .ssub { color: var(--muted); font-size: 15px; max-width: 520px; line-height: 1.8; margin-bottom: 52px; font-weight: 400; }
 
   /* SERVICES */
   .services-bg { background: var(--sand); }
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2px; background: rgba(0,0,0,0.06); }
-  .svc { background: var(--cream); padding: 36px 30px; transition: all 0.25s; position: relative; overflow: hidden; border-top: 3px solid transparent; }
-  .svc:hover { background: #fff; border-top-color: var(--green-light); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(58,125,30,0.1); }
-  .svc-num { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; color: var(--green-light); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; font-weight: 700; }
-  .svc-icon { font-size: 30px; margin-bottom: 14px; }
-  .svc-name { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.1; }
-  .svc-desc { font-size: 13px; color: var(--muted); line-height: 1.7; font-weight: 400; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+  .svc { background: #fff; border: 2px solid var(--border); border-radius: 16px; padding: 30px; transition: all 0.25s; position: relative; overflow: hidden; }
+  .svc::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--honey-dark), var(--honey-light)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .svc:hover { border-color: var(--honey); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(232,160,32,0.12); }
+  .svc:hover::before { transform: scaleX(1); }
+  .svc-icon { font-size: 32px; margin-bottom: 14px; }
+  .svc-name { font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+  .svc-tag { font-size: 12px; color: var(--honey-dark); font-weight: 700; margin-bottom: 10px; }
+  .svc-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
 
-  /* ABOUT */
-  .about-bg {
-    background: var(--dark); position: relative; overflow: hidden;
-  }
-  .about-bg::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 60px); }
-  .about-bg .stag { background: rgba(58,125,30,0.1); border-color: var(--green-light); color: var(--green-light); }
+  /* ABOUT — honeycomb dark bg */
+  .about-bg { background: var(--dark); position: relative; overflow: hidden; }
+  .about-bg::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V17L28 0l28 17v33L28 66zm0-2l26-15V19L28 2 2 19v30l26 15z' fill='rgba(232,160,32,0.05)'/%3E%3C/svg%3E"); }
+  .about-bg .stag { background: rgba(232,160,32,0.1); border-color: rgba(232,160,32,0.3); color: var(--honey-light); }
   .about-bg .stitle { color: #fff; }
+  .about-bg .stitle em { color: var(--honey-light); }
   .about-bg .ssub { color: rgba(255,255,255,0.45); }
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; position: relative; z-index: 1; }
   .reasons { display: flex; flex-direction: column; gap: 16px; }
-  .reason { display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); transition: background 0.2s; }
-  .reason:hover { background: rgba(255,255,255,0.08); }
+  .reason { display: flex; gap: 14px; align-items: flex-start; padding: 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; transition: background 0.2s; }
+  .reason:hover { background: rgba(255,255,255,0.09); }
   .reason-icon { font-size: 22px; min-width: 28px; }
-  .reason-title { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .reason-text { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.65; font-weight: 300; }
-  .about-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(58,125,30,0.25); border-top: 3px solid var(--green-light); padding: 44px 40px; }
-  .about-card-title { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; color: var(--green-light); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 28px; font-weight: 700; }
-  .astat { display: flex; align-items: center; gap: 18px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .reason-title { font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+  .reason-text { font-size: 13px; color: rgba(255,255,255,0.52); line-height: 1.65; }
+  .about-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(232,160,32,0.25); border-top: 3px solid var(--honey); border-radius: 16px; padding: 44px 40px; }
+  .about-card-title { font-size: 12px; font-weight: 700; color: var(--honey-light); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+  .astat { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
   .astat:last-child { border: none; }
-  .astat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 800; color: #fff; min-width: 80px; line-height: 1; letter-spacing: -0.5px; }
-  .astat-num span { color: var(--green-light); }
-  .astat-label { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.5; font-weight: 400; }
-  .austin-badge { margin-top: 20px; padding: 16px; background: rgba(224,112,32,0.1); border: 1px solid rgba(224,112,32,0.25); }
-  .austin-title { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; color: var(--orange-light); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; font-weight: 700; }
-  .austin-text { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.65; font-style: italic; }
+  .astat-num { font-size: 30px; font-weight: 900; color: #fff; min-width: 80px; line-height: 1; }
+  .astat-num span { color: var(--honey-light); font-size: 16px; }
+  .astat-label { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.5; }
+  .humane-badge { margin-top: 20px; padding: 16px; background: rgba(232,160,32,0.08); border: 1px solid rgba(232,160,32,0.2); border-radius: 10px; }
+  .humane-title { font-size: 12px; font-weight: 700; color: var(--honey-light); margin-bottom: 6px; letter-spacing: 0.5px; }
+  .humane-text { font-size: 13px; color: rgba(255,255,255,0.52); line-height: 1.65; font-style: italic; font-family: 'Lora', serif; }
 
   /* REVIEWS */
   .reviews-bg {
     position: relative; overflow: hidden;
-    background: url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1800&q=80') center/cover no-repeat;
+    background: url('https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=1800&q=80') center/cover no-repeat;
   }
-  .reviews-overlay { position: absolute; inset: 0; background: linear-gradient(145deg, rgba(14,18,8,0.96), rgba(22,28,14,0.93)); }
+  .reviews-overlay { position: absolute; inset: 0; background: linear-gradient(145deg, rgba(26,18,0,0.96), rgba(42,32,0,0.93)); }
   .reviews-inner { position: relative; z-index: 1; }
-  .reviews-bg .stag { background: rgba(58,125,30,0.1); border-color: var(--green-light); color: var(--green-light); }
+  .reviews-bg .stag { background: rgba(232,160,32,0.1); border-color: rgba(232,160,32,0.3); color: var(--honey-light); }
   .reviews-bg .stitle { color: #fff; }
+  .reviews-bg .stitle em { color: var(--honey-light); }
   .reviews-top { display: flex; align-items: center; gap: 24px; margin-bottom: 40px; flex-wrap: wrap; }
-  .score-big { font-family: 'Barlow Condensed', sans-serif; font-size: 80px; font-weight: 900; color: #fff; line-height: 1; letter-spacing: -2px; }
-  .score-stars { color: var(--orange); font-size: 22px; letter-spacing: 2px; }
-  .score-label { font-size: 12px; color: rgba(255,255,255,0.5); font-weight: 600; margin-top: 4px; letter-spacing: 0.5px; }
-  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-  .review-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); padding: 28px; border-top: 3px solid transparent; transition: border-top-color 0.2s; }
-  .review-card:hover { border-top-color: var(--green-light); }
-  .review-stars { color: var(--orange); font-size: 14px; margin-bottom: 12px; letter-spacing: 1px; }
-  .review-text { font-size: 14px; color: rgba(255,255,255,0.88); line-height: 1.75; margin-bottom: 16px; font-style: italic; }
-  .review-name { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; color: var(--green-light); letter-spacing: 1px; text-transform: uppercase; }
-  .review-meta { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 3px; }
+  .score-big { font-size: 72px; font-weight: 900; color: #fff; line-height: 1; letter-spacing: -2px; }
+  .score-stars { color: var(--honey); font-size: 22px; letter-spacing: 2px; }
+  .score-label { font-size: 12px; color: rgba(255,255,255,0.5); font-weight: 600; margin-top: 4px; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; }
+  .review-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px; backdrop-filter: blur(12px); border-top: 3px solid transparent; transition: border-top-color 0.2s; }
+  .review-card:hover { border-top-color: var(--honey); }
+  .review-stars { color: var(--honey); font-size: 14px; margin-bottom: 12px; letter-spacing: 1px; }
+  .review-text { font-size: 14px; color: rgba(255,255,255,0.9); line-height: 1.75; margin-bottom: 16px; font-style: italic; font-family: 'Lora', serif; }
+  .review-name { font-size: 13px; font-weight: 800; color: var(--honey-light); }
+  .review-meta { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 2px; }
 
   /* BOOKING */
-  .booking-bg { background: var(--cream); position: relative; overflow: hidden; }
-  .booking-bg::before { content: ''; position: absolute; top: -60px; right: -60px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(58,125,30,0.06) 0%, transparent 70%); }
+  .booking-bg { background: var(--sand); position: relative; overflow: hidden; }
+  .booking-bg::before { content: '🐝'; position: absolute; bottom: -20px; right: 3%; font-size: 200px; opacity: 0.04; }
   .booking-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: start; position: relative; z-index: 1; }
-  .form-card { background: var(--dark); border-top: 3px solid var(--green-light); padding: 48px 44px; box-shadow: 0 24px 64px rgba(0,0,0,0.2); }
-  .form-title { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
-  .form-sub { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 28px; font-weight: 300; }
+  .form-card { background: var(--dark); border-top: 3px solid var(--honey); border-radius: 16px; padding: 48px 44px; box-shadow: 0 24px 64px rgba(0,0,0,0.2); }
+  .form-title { font-size: 22px; font-weight: 900; color: #fff; margin-bottom: 6px; }
+  .form-sub { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 28px; font-weight: 300; }
   .form-group { margin-bottom: 16px; }
-  .form-group label { display: block; font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.4); margin-bottom: 6px; letter-spacing: 2px; text-transform: uppercase; }
-  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 13px 14px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); font-family: 'Barlow', sans-serif; font-size: 14px; color: #fff; outline: none; transition: border-color 0.2s; border-radius: 4px; }
+  .form-group label { display: block; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.4); margin-bottom: 6px; letter-spacing: 1.5px; text-transform: uppercase; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 13px 14px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); font-family: 'Nunito', sans-serif; font-size: 14px; color: #fff; outline: none; transition: border-color 0.2s; border-radius: 8px; }
   .form-group select option { background: var(--dark); }
   .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.22); }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--green-light); background: rgba(255,255,255,0.08); }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--honey); background: rgba(255,255,255,0.08); }
   .form-group textarea { resize: vertical; min-height: 90px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .form-submit { width: 100%; background: var(--orange); color: #fff; border: none; padding: 16px; font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; letter-spacing: 2.5px; text-transform: uppercase; transition: all 0.2s; margin-top: 8px; border-radius: 4px; }
-  .form-submit:hover { background: var(--orange-light); transform: translateY(-1px); }
+  .form-submit { width: 100%; background: var(--honey); color: var(--black); border: none; padding: 15px; border-radius: 50px; font-size: 13px; font-weight: 800; font-family: 'Nunito', sans-serif; cursor: pointer; transition: all 0.2s; margin-top: 8px; box-shadow: 0 6px 20px rgba(232,160,32,0.4); }
+  .form-submit:hover { background: var(--honey-light); transform: translateY(-1px); }
   .contact-info { padding-top: 8px; }
-  .contact-title { font-family: 'Barlow Condensed', sans-serif; font-size: 44px; font-weight: 900; color: var(--text); line-height: 0.95; margin-bottom: 16px; text-transform: uppercase; letter-spacing: -0.5px; }
-  .contact-title .gr { color: var(--green); }
-  .contact-sub { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 36px; font-weight: 400; }
+  .contact-title { font-size: 38px; font-weight: 900; color: var(--text); line-height: 1.1; margin-bottom: 14px; }
+  .contact-title em { font-family: 'Lora', serif; font-style: italic; color: var(--honey-dark); }
+  .contact-sub { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 36px; }
   .clist { display: flex; flex-direction: column; }
   .citem { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
   .citem:first-child { padding-top: 0; }
   .citem:last-child { border: none; }
   .cicon { font-size: 20px; min-width: 26px; margin-top: 2px; }
-  .clabel { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
-  .cval { font-size: 15px; font-weight: 600; color: var(--text); }
-  .cnote { font-size: 13px; color: var(--muted); margin-top: 2px; font-weight: 400; }
-  .open-pill { display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; background: var(--green-pale); border: 1px solid rgba(58,125,30,0.3); color: var(--green); font-size: 11px; font-weight: 700; padding: 4px 12px; letter-spacing: 1px; text-transform: uppercase; }
+  .clabel { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .cval { font-size: 15px; font-weight: 700; color: var(--text); }
+  .cnote { font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .open-pill { display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; background: var(--honey-pale); border: 1px solid rgba(232,160,32,0.3); color: var(--honey-dark); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 50px; }
   .open-pill::before { content: '●'; font-size: 7px; animation: pulse 2s infinite; }
 
   /* FOOTER */
-  footer { background: var(--dark); padding: 48px 5% 32px; border-top: 3px solid var(--green-light); }
+  footer { background: var(--dark); padding: 44px 5% 32px; border-top: 3px solid var(--honey); }
   .footer-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 28px; }
-  .footer-brand { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 900; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
-  .footer-brand span { color: var(--green-light); }
+  .footer-brand { font-size: 18px; font-weight: 900; color: rgba(255,255,255,0.7); margin-bottom: 4px; }
+  .footer-brand span { color: var(--honey-light); }
   .footer-brand-sub { font-size: 10px; color: rgba(255,255,255,0.28); letter-spacing: 2px; text-transform: uppercase; }
   .footer-col { display: flex; flex-direction: column; gap: 10px; }
-  .footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--green-light); margin-bottom: 4px; }
-  .footer-col a { font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; font-weight: 400; }
+  .footer-col-title { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--honey-light); margin-bottom: 4px; opacity: 0.75; }
+  .footer-col a { font-size: 13px; color: rgba(255,255,255,0.32); text-decoration: none; transition: color 0.2s; }
   .footer-col a:hover { color: rgba(255,255,255,0.8); }
   .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
   .footer-copy { font-size: 12px; color: rgba(255,255,255,0.18); }
-  .footer-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; color: var(--green-light); opacity: 0.4; letter-spacing: 2px; text-transform: uppercase; }
+  .footer-tag { font-family: 'Lora', serif; font-size: 13px; font-style: italic; color: var(--honey-light); opacity: 0.4; }
 
   @media (max-width: 960px) {
     .hero-inner, .about-grid, .booking-layout { grid-template-columns: 1fr; }
@@ -223,11 +234,11 @@
 <body>
 
 <nav>
-  <div style="display:flex;align-items:center;gap:12px;">
-    <img src="sams_logo.jpg" alt="Sam's Tree Service Logo" style="height:48px;width:auto;border-radius:4px;">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span class="nav-bee">🐝</span>
     <div>
-      <div class="nav-logo-main">Sam's <span>Grapple Truck</span></div>
-      <div class="nav-logo-sub">Sarasota, FL · Debris Removal</div>
+      <div class="nav-logo-main">Sarasota <span>Bee Removal</span></div>
+      <div class="nav-logo-sub">Honey Bee · Wasp · Hornet · Yellow Jacket</div>
     </div>
   </div>
   <div class="nav-links">
@@ -237,8 +248,8 @@
     <a href="#booking">Contact</a>
   </div>
   <div class="nav-right">
-    <a href="tel:9418798853" class="nav-phone">(941) 879-8853</a>
-    <a href="#booking" class="nav-cta">Free Quote</a>
+    <a href="tel:9418226353" class="nav-phone">(941) 822-6353</a>
+    <a href="#booking" class="nav-cta">🐝 Free Quote</a>
   </div>
 </nav>
 
@@ -246,37 +257,38 @@
 <section class="hero" style="padding:0;">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
-  <div class="hero-green-glow"></div>
+  <div class="hero-hc"></div>
+  <div class="hero-glow"></div>
   <div class="hero-inner">
     <div>
-      <div class="hero-eyebrow"><div class="edot"></div> Sarasota's Grapple Truck Specialists</div>
-      <h1>Heavy Debris.<br><span class="green">Gone Fast.</span><br><span class="orange">Same Day.</span></h1>
-      <p class="hero-sub">Sam's Grapple Truck Service handles the toughest debris removal jobs in Sarasota. Professional, fast, and dependable — Sam and Austin show up and get it done right.</p>
+      <div class="hero-eyebrow"><div class="edot"></div> Sarasota's #1 Bee Removal Specialists</div>
+      <h1><span class="script">Humane. Safe. Fast. —</span>Bee Gone.<br><span class="honey">Problem Solved.</span></h1>
+      <p class="hero-sub">Sarasota Bee Removal Inc safely removes honey bees, wasps, hornets, and yellow jackets from your home or business — humanely relocating bees whenever possible. Cody and the team explain every step of the process so you're never left wondering.</p>
       <div class="hero-pills">
-        <div class="hero-pill gr">⭐ 4.5 · 4 Reviews</div>
-        <div class="hero-pill">📍 Sarasota, FL</div>
-        <div class="hero-pill">⚡ Same-Day Service</div>
-        <div class="hero-pill">🚛 Grapple Truck Equipped</div>
+        <div class="hero-pill gold">⭐ 5.0 · 110 Reviews</div>
+        <div class="hero-pill">🌴 Sarasota, FL</div>
+        <div class="hero-pill">🐝 Humane Bee Relocation</div>
+        <div class="hero-pill">🦺 Safe & Professional</div>
       </div>
       <div class="hero-btns">
-        <a href="#booking" class="btn-orange">🚛 Get a Free Quote</a>
-        <a href="tel:9418798853" class="btn-outline">📞 (941) 879-8853</a>
+        <a href="#booking" class="btn-honey">🐝 Get a Free Quote</a>
+        <a href="tel:9418226353" class="btn-ghost">📞 (941) 822-6353</a>
       </div>
     </div>
     <div class="hero-card">
       <div class="hero-card-label">At a Glance</div>
-      <div class="hstat"><div class="hstat-num">4.5<span>★</span></div><div class="hstat-label">Google Rating</div></div>
-      <div class="hstat"><div class="hstat-num">Same<span> day</span></div><div class="hstat-label">Service Available</div></div>
-      <div class="hstat"><div class="hstat-num">Free</div><div class="hstat-label">Estimates Always</div></div>
-      <div class="sam-badge">
-        <div class="sam-title">🚛 Grapple Truck Ready</div>
-        <div class="sam-text">Equipped with a grapple truck for heavy debris removal — the jobs other companies can't handle.</div>
+      <div class="hstat"><div class="hstat-num">5.0<span>★</span></div><div class="hstat-label">Google Rating</div></div>
+      <div class="hstat"><div class="hstat-num">110</div><div class="hstat-label">Five-Star Reviews</div></div>
+      <div class="hstat"><div class="hstat-num">8<span>PM</span></div><div class="hstat-label">Open Until Tonight</div></div>
+      <div class="cody-badge">
+        <div class="cody-title">🐝 Ask for Cody</div>
+        <div class="cody-text">Cody explains every step of the removal process and executes exactly as described — every time.</div>
       </div>
     </div>
   </div>
   <div class="hero-wave">
     <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#3a7d1e" d="M0,48L60,42C120,37,240,26,360,28C480,30,600,44,720,50C840,55,960,51,1080,44C1200,37,1320,26,1380,21L1440,16L1440,80L0,80Z"/>
+      <path fill="#e8a020" d="M0,48L60,42C120,37,240,26,360,28C480,30,600,44,720,50C840,55,960,51,1080,44C1200,37,1320,26,1380,21L1440,16L1440,80L0,80Z"/>
     </svg>
   </div>
 </section>
@@ -284,37 +296,37 @@
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <span class="ticker-item">Grapple Truck Service <span class="tdot"></span></span>
-    <span class="ticker-item">Debris Removal <span class="tdot"></span></span>
-    <span class="ticker-item">Same-Day Available <span class="tdot"></span></span>
-    <span class="ticker-item">Tree & Storm Debris <span class="tdot"></span></span>
-    <span class="ticker-item">Yard Waste Removal <span class="tdot"></span></span>
-    <span class="ticker-item">Junk Hauling <span class="tdot"></span></span>
-    <span class="ticker-item">4.5 Stars · Sarasota FL <span class="tdot"></span></span>
-    <span class="ticker-item">Free Estimates <span class="tdot"></span></span>
-    <span class="ticker-item">Grapple Truck Service <span class="tdot"></span></span>
-    <span class="ticker-item">Debris Removal <span class="tdot"></span></span>
-    <span class="ticker-item">Same-Day Available <span class="tdot"></span></span>
-    <span class="ticker-item">Tree & Storm Debris <span class="tdot"></span></span>
-    <span class="ticker-item">Yard Waste Removal <span class="tdot"></span></span>
-    <span class="ticker-item">Junk Hauling <span class="tdot"></span></span>
-    <span class="ticker-item">4.5 Stars · Sarasota FL <span class="tdot"></span></span>
-    <span class="ticker-item">Free Estimates <span class="tdot"></span></span>
+    <span class="ticker-item">Honey Bee Removal <span class="tdot"></span></span>
+    <span class="ticker-item">Wasp Removal <span class="tdot"></span></span>
+    <span class="ticker-item">Hornet Removal <span class="tdot"></span></span>
+    <span class="ticker-item">Yellow Jacket Removal <span class="tdot"></span></span>
+    <span class="ticker-item">Africanized Bee Removal <span class="tdot"></span></span>
+    <span class="ticker-item">Humane Bee Relocation <span class="tdot"></span></span>
+    <span class="ticker-item">5.0 Stars · 110 Reviews <span class="tdot"></span></span>
+    <span class="ticker-item">Sarasota · Bradenton · Tampa <span class="tdot"></span></span>
+    <span class="ticker-item">Honey Bee Removal <span class="tdot"></span></span>
+    <span class="ticker-item">Wasp Removal <span class="tdot"></span></span>
+    <span class="ticker-item">Hornet Removal <span class="tdot"></span></span>
+    <span class="ticker-item">Yellow Jacket Removal <span class="tdot"></span></span>
+    <span class="ticker-item">Africanized Bee Removal <span class="tdot"></span></span>
+    <span class="ticker-item">Humane Bee Relocation <span class="tdot"></span></span>
+    <span class="ticker-item">5.0 Stars · 110 Reviews <span class="tdot"></span></span>
+    <span class="ticker-item">Sarasota · Bradenton · Tampa <span class="tdot"></span></span>
   </div>
 </div>
 
 <!-- SERVICES -->
 <section class="services-bg" id="services">
-  <div class="stag">What We Do</div>
-  <div class="stitle">Every <span class="gr">Debris</span><br>Job Handled.</div>
-  <p class="ssub">From storm cleanup to large-scale yard waste removal — Sam's Grapple Truck handles the heavy jobs other companies won't touch. Fast, professional, and same-day available.</p>
+  <div class="stag">🐝 Services</div>
+  <div class="stitle">Every Stinging Pest,<br><em>Safely Removed.</em></div>
+  <p class="ssub">From aggressive Africanized honey bees to wasps and yellow jackets — Sarasota Bee Removal Inc handles every species safely, professionally, and humanely.</p>
   <div class="services-grid">
-    <div class="svc"><div class="svc-num">01 — Specialty</div><div class="svc-icon">🚛</div><div class="svc-name">Grapple Truck Service</div><div class="svc-desc">The specialty that sets Sam apart. Our grapple truck can grab and haul heavy debris, brush piles, and storm waste that standard trucks can't handle.</div></div>
-    <div class="svc"><div class="svc-num">02 — Storm</div><div class="svc-icon">🌪️</div><div class="svc-name">Storm & Hurricane Cleanup</div><div class="svc-desc">Fast storm debris removal after Florida's hurricanes and tropical storms. We clear downed trees, branches, and debris quickly so you can get back to normal.</div></div>
-    <div class="svc"><div class="svc-num">03 — Trees</div><div class="svc-icon">🌳</div><div class="svc-name">Tree & Brush Removal</div><div class="svc-desc">Removal of felled trees, large branches, and brush piles. The grapple truck makes short work of even the biggest piles of yard debris.</div></div>
-    <div class="svc"><div class="svc-num">04 — Yard</div><div class="svc-icon">🍂</div><div class="svc-name">Yard Waste Removal</div><div class="svc-desc">Grass clippings, leaves, branches, and yard waste hauled away fast. Same-day service available — one call and it's gone.</div></div>
-    <div class="svc"><div class="svc-num">05 — Junk</div><div class="svc-icon">🗑️</div><div class="svc-name">Junk & Debris Hauling</div><div class="svc-desc">Old furniture, construction debris, and general junk removed from your property. Professional, fast, and at a fair price every time.</div></div>
-    <div class="svc"><div class="svc-num">06 — Commercial</div><div class="svc-icon">🏢</div><div class="svc-name">Commercial Cleanup</div><div class="svc-desc">Large commercial and residential property cleanups. Sam and the crew handle volume jobs with the same speed and professionalism as every other job.</div></div>
+    <div class="svc"><div class="svc-icon">🐝</div><div class="svc-name">Honey Bee Removal</div><div class="svc-tag">Humane relocation — bees kept alive.</div><div class="svc-desc">Professional honey bee removal with live relocation whenever possible. Cody explains every step so you understand exactly what's happening and why.</div></div>
+    <div class="svc"><div class="svc-icon">🦂</div><div class="svc-name">Africanized Bee Removal</div><div class="svc-tag">The most dangerous — handled safely.</div><div class="svc-desc">Africanized "killer" bees are extremely aggressive. Our specialists are equipped and trained to handle these dangerous colonies safely and completely.</div></div>
+    <div class="svc"><div class="svc-icon">🪲</div><div class="svc-name">Wasp Removal</div><div class="svc-tag">Nests found and eliminated.</div><div class="svc-desc">Paper wasps, mud daubers, and other wasp species removed from eaves, attics, and outdoor structures. Safe for your family and pets.</div></div>
+    <div class="svc"><div class="svc-icon">🐛</div><div class="svc-name">Hornet Removal</div><div class="svc-tag">Bald-faced and European hornets.</div><div class="svc-desc">Hornet nests removed safely from trees, walls, and structures. Hornets are aggressive when disturbed — let the professionals handle it.</div></div>
+    <div class="svc"><div class="svc-icon">🟡</div><div class="svc-name">Yellow Jacket Removal</div><div class="svc-tag">In-ground and structure nests.</div><div class="svc-desc">Yellow jackets nest in the ground and inside walls — both removed completely. Florida's warm climate means year-round yellow jacket activity.</div></div>
+    <div class="svc"><div class="svc-icon">🏠</div><div class="svc-name">Bee Proofing</div><div class="svc-tag">Stop them coming back.</div><div class="svc-desc">After removal, we identify and seal entry points to prevent future infestations. Protecting your home long-term — not just a one-time fix.</div></div>
   </div>
 </section>
 
@@ -322,29 +334,25 @@
 <section class="about-bg" id="about">
   <div class="about-grid">
     <div>
-      <div class="stag">About Sam's</div>
-      <div class="stitle">Fast, <span style="color:var(--green-light);">Professional,</span><br>Can Always Count On.</div>
-      <p class="ssub">Sam and his crew have built a reputation in Sarasota for showing up fast, working professionally, and getting the job done right. Austin handles jobs with speed and precision that earns repeat customers.</p>
+      <div class="stag">🐝 Why Choose Us</div>
+      <div class="stitle">Sarasota's Most<br><em>Trusted</em> Bee Experts.</div>
+      <p class="ssub">With 110 five-star reviews and a commitment to humane, professional removal — Sarasota Bee Removal Inc is the team Sarasota homeowners trust when they have a bee emergency.</p>
       <div class="reasons">
-        <div class="reason"><div class="reason-icon">⚡</div><div><div class="reason-title">Same-Day Service</div><div class="reason-text">Rene got same-day service and was blown away. When you need debris gone fast Sam's team delivers — no waiting around.</div></div></div>
-        <div class="reason"><div class="reason-icon">🚛</div><div><div class="reason-title">Grapple Truck Equipped</div><div class="reason-text">The grapple truck sets Sam apart from standard haulers. Heavy debris, large brush piles, storm waste — handled efficiently.</div></div></div>
-        <div class="reason"><div class="reason-icon">👷</div><div><div class="reason-title">Professional Every Time</div><div class="reason-text">Sam and Austin are professionals who take pride in their work. Customers recommend without hesitation and come back again.</div></div></div>
-        <div class="reason"><div class="reason-icon">⏱️</div><div><div class="reason-title">Respects Your Time</div><div class="reason-text">"Highly recommended to people who care about their Time!" — Aleksey. Sam's crew doesn't waste your time or drag out a job.</div></div></div>
+        <div class="reason"><div class="reason-icon">💬</div><div><div class="reason-title">Explains Every Step</div><div class="reason-text">Cody walks you through the entire process before starting and executes exactly as described. No surprises, no confusion.</div></div></div>
+        <div class="reason"><div class="reason-icon">🐝</div><div><div class="reason-title">Humane Bee Relocation</div><div class="reason-text">Honey bees are relocated alive to a safer place whenever possible. We protect the bees and protect your home.</div></div></div>
+        <div class="reason"><div class="reason-icon">⚡</div><div><div class="reason-title">Fast & Responsive</div><div class="reason-text">Open until 8 PM. When you have a bee emergency — especially with aggressive Africanized bees — you need someone who responds fast.</div></div></div>
+        <div class="reason"><div class="reason-icon">⭐</div><div><div class="reason-title">110 Five-Star Reviews</div><div class="reason-text">A perfect 5.0 across 110 verified Google reviews. Sarasota homeowners keep coming back and referring their neighbors.</div></div></div>
       </div>
     </div>
     <div class="about-card">
-      <div class="about-card-title">Sam's At a Glance</div>
-      <div class="astat"><div class="astat-num">4.5<span>★</span></div><div class="astat-label">Google rating from verified Sarasota customers</div></div>
-      <div class="astat"><div class="astat-num">Same<span> day</span></div><div class="astat-label">Service available — call Sam now</div></div>
-      <div class="astat"><div class="astat-num">Grapple</div><div class="astat-label">Truck equipped for heavy debris</div></div>
-      <div class="astat"><div class="astat-num">Free</div><div class="astat-label">Estimates on every job — no obligation</div></div>
-      <div class="austin-badge">
-        <div class="austin-title">⭐ "Kudos to you Austin, keep up the great work!"</div>
-        <div class="austin-text">— Rene Cain, Google Review</div>
-      </div>
-      <!-- PROMO PHOTO -->
-      <div style="margin-top:20px;position:relative;overflow:hidden;border-top:3px solid var(--orange);">
-        <img src="sams_front_page.jpg" alt="Sam's Tree Service Team" style="width:100%;display:block;object-fit:cover;">
+      <div class="about-card-title">At a Glance</div>
+      <div class="astat"><div class="astat-num">5.0<span>★</span></div><div class="astat-label">Perfect Google rating — 110 verified reviews</div></div>
+      <div class="astat"><div class="astat-num">110</div><div class="astat-label">Five-star reviews from Sarasota customers</div></div>
+      <div class="astat"><div class="astat-num">All</div><div class="astat-label">Species — honey bees, wasps, hornets, yellow jackets</div></div>
+      <div class="astat"><div class="astat-num">8<span>PM</span></div><div class="astat-label">Open until 8 PM — available when you need us</div></div>
+      <div class="humane-badge">
+        <div class="humane-title">🐝 Humane Relocation Promise</div>
+        <div class="humane-text">"Relocated our valuable honey bees to a safer place." — We protect the bees and protect your home.</div>
       </div>
     </div>
   </div>
@@ -354,34 +362,34 @@
 <section class="reviews-bg" id="reviews">
   <div class="reviews-overlay"></div>
   <div class="reviews-inner">
-    <div class="stag">Reviews</div>
-    <div class="stitle" style="color:#fff;">What Sarasota <span style="color:var(--green-light);">Says.</span></div>
+    <div class="stag">⭐ Reviews</div>
+    <div class="stitle">110 Reasons to <em>Call Us First.</em></div>
     <div class="reviews-top">
-      <div class="score-big">4.5</div>
+      <div class="score-big">5.0</div>
       <div>
-        <div class="score-stars">★★★★½</div>
-        <div style="font-family:'Barlow Condensed',sans-serif; font-size:18px; font-weight:800; color:#fff; margin-top:4px; text-transform:uppercase; letter-spacing:1px;">4 Google Reviews</div>
+        <div class="score-stars">★★★★★</div>
+        <div style="font-size:16px; font-weight:800; color:#fff; margin-top:4px;">110 Google Reviews · Perfect Rating</div>
         <div class="score-label">Sarasota, FL · Verified</div>
       </div>
     </div>
     <div class="reviews-grid">
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <div class="review-text">"I couldn't be more pleased. I was able to get same day service — WOW. Austin came and loaded up my residue, was professional and completed his task in short order. Kudos to you Austin, keep up the great work y'all!"</div>
-        <div class="review-name">Rene Cain</div>
-        <div class="review-meta">Google Review · 3 reviews · 1 year ago</div>
+        <div class="review-text">"Cody was amazing at not only removing the bees humanely to keep, but so patient at explaining the process to us! Would highly recommend him!"</div>
+        <div class="review-name">Robin Dreyer</div>
+        <div class="review-meta">Google Local Guide · 31 reviews · 6 months ago</div>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <div class="review-text">"Highly recommended to people who care about their Time! Sam and his crew are professionals! You can always count on them! Absolutely a pleasure to do business with — Bravo Sam!"</div>
-        <div class="review-name">Aleksey Izmaylov</div>
-        <div class="review-meta">Google Local Guide · 18 reviews · 5 years ago</div>
+        <div class="review-text">"Cody did a fantastic job relocating the honey bees from our house. He explained very clearly how he was going to do it step by step and why. He executed exactly the way he described and in the time frame he gave us."</div>
+        <div class="review-name">Dave Dreyer</div>
+        <div class="review-meta">Google Local Guide · 8 reviews · 6 months ago</div>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <div class="review-text">"Responsive, professional, and got the job done. Positive experience all around — would recommend Sam's Grapple Truck Service to anyone in Sarasota who needs debris removed."</div>
-        <div class="review-name">William Vanderbent</div>
-        <div class="review-meta">Google Review · 1 review</div>
+        <div class="review-text">"I was chased 300 feet back into my house by what I think were Africanized Honey Bees — had 5 nasty stings before I got away. Called Sarasota Bee Removal and they handled it completely and professionally."</div>
+        <div class="review-name">Paul B</div>
+        <div class="review-meta">Google Local Guide · 13 reviews · 2 months ago</div>
       </div>
     </div>
   </div>
@@ -391,19 +399,19 @@
 <section class="booking-bg" id="booking">
   <div class="booking-layout">
     <div class="contact-info">
-      <div class="stag">Get a Quote</div>
-      <div class="contact-title">NEED DEBRIS<br><span class="gr">GONE TODAY?</span></div>
-      <div class="contact-sub">Fill out the form and Sam will get back to you quickly with a free estimate. Same-day service available — call now.</div>
+      <div class="stag">📞 Get in Touch</div>
+      <div class="contact-title">Get Your <em>Free</em> Quote Today.</div>
+      <div class="contact-sub">Fill out the form and we'll get back to you quickly. Or call directly — we're open until 8 PM for bee emergencies.</div>
       <div class="clist">
-        <div class="citem"><div class="cicon">📞</div><div><div class="clabel">Phone</div><div class="cval">(941) 879-8853</div><div class="cnote">Call Sam directly for same-day service</div><div class="open-pill">Open · Closes 7 PM</div></div></div>
-        <div class="citem"><div class="cicon">📍</div><div><div class="clabel">Address</div><div class="cval">2209 Amanda Dr</div><div class="cnote">Sarasota, FL 34232</div></div></div>
-        <div class="citem"><div class="cicon">⭐</div><div><div class="clabel">Rating</div><div class="cval">4.5 Stars · 4 Reviews</div><div class="cnote">"Sam and his crew are professionals — you can always count on them."</div></div></div>
-        <div class="citem"><div class="cicon">⚡</div><div><div class="clabel">Response</div><div class="cval">Same-Day Service Available</div><div class="cnote">Call early for best availability</div></div></div>
+        <div class="citem"><div class="cicon">📞</div><div><div class="clabel">Phone</div><div class="cval">(941) 822-6353</div><div class="cnote">Call anytime — open until 8 PM</div><div class="open-pill">Open · Closes 8 PM</div></div></div>
+        <div class="citem"><div class="cicon">📍</div><div><div class="clabel">Address</div><div class="cval">3958 Omega Cir</div><div class="cnote">Sarasota, FL 34235</div></div></div>
+        <div class="citem"><div class="cicon">⭐</div><div><div class="clabel">Rating</div><div class="cval">5.0 Stars · 110 Reviews</div><div class="cnote">"Couldn't be happier with this service."</div></div></div>
+        <div class="citem"><div class="cicon">🐝</div><div><div class="clabel">Specialties</div><div class="cval">Honey Bee · Wasp · Hornet · Yellow Jacket</div><div class="cnote">Africanized bees handled safely</div></div></div>
       </div>
     </div>
     <div class="form-card">
-      <div class="form-title">Get a Free Quote</div>
-      <div class="form-sub">We'll get back to you quickly — same-day available.</div>
+      <div class="form-title">🐝 Get a Free Quote</div>
+      <div class="form-sub">Tell us about your bee problem and we'll respond quickly.</div>
       <form action="https://formspree.io/f/mzdoepjp" method="POST">
       <div class="form-row">
         <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="John"></div>
@@ -412,20 +420,19 @@
       <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" placeholder="(941) 555-0000"></div>
       <div class="form-group"><label>Property Address</label><input type="text" name="address" placeholder="123 Main St, Sarasota FL"></div>
       <div class="form-group">
-        <label>Service Needed</label>
+        <label>Type of Pest</label>
         <select name="service">
-          <option value="">Select a service...</option>
-          <option>Grapple Truck Service</option>
-          <option>Storm & Hurricane Cleanup</option>
-          <option>Tree & Brush Removal</option>
-          <option>Yard Waste Removal</option>
-          <option>Junk & Debris Hauling</option>
-          <option>Commercial Cleanup</option>
-          <option>Same-Day Emergency Service</option>
+          <option value="">Select pest type...</option>
+          <option>Honey Bees</option>
+          <option>Africanized / Killer Bees</option>
+          <option>Wasps</option>
+          <option>Hornets</option>
+          <option>Yellow Jackets</option>
+          <option>Not Sure — Need Inspection</option>
         </select>
       </div>
-      <div class="form-group"><label>Describe the Job</label><textarea name="message" placeholder="What needs to be removed? Approximate amount, location on property..."></textarea></div>
-      <button class="form-submit">🚛 Get My Free Quote</button>
+      <div class="form-group"><label>Describe the Problem</label><textarea name="message" placeholder="Where are they located? How long have they been there? Any stings?"></textarea></div>
+      <button class="form-submit">🐝 Send My Request</button>
       </form>
     </div>
   </div>
@@ -434,31 +441,31 @@
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-brand">Sam's <span>Grapple Truck Service</span></div>
-      <div class="footer-brand-sub">2209 Amanda Dr · Sarasota, FL 34232</div>
+      <div class="footer-brand">Sarasota <span>Bee Removal Inc</span></div>
+      <div class="footer-brand-sub">3958 Omega Cir · Sarasota, FL 34235</div>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Services</div>
-      <a href="#services">Grapple Truck</a>
-      <a href="#services">Storm Cleanup</a>
-      <a href="#services">Tree & Brush</a>
-      <a href="#services">Yard Waste</a>
+      <a href="#services">Honey Bee Removal</a>
+      <a href="#services">Wasp Removal</a>
+      <a href="#services">Hornet Removal</a>
+      <a href="#services">Yellow Jacket Removal</a>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Company</div>
-      <a href="#about">About Sam's</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#booking">Get a Quote</a>
+      <a href="#about">About Us</a>
+      <a href="#reviews">110 Reviews</a>
+      <a href="#booking">Contact</a>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Contact</div>
-      <a href="tel:9418798853">(941) 879-8853</a>
+      <a href="tel:9418226353">(941) 822-6353</a>
       <a href="#booking">Free Quote</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Sam's Grapple Truck Service · Sarasota, FL · All Rights Reserved</div>
-    <div class="footer-tag">Heavy Debris. Gone Fast.</div>
+    <div class="footer-copy">© 2026 Sarasota Bee Removal Inc · Sarasota, FL · All Rights Reserved</div>
+    <div class="footer-tag">Humane. Safe. Professional.</div>
   </div>
 </footer>
 
